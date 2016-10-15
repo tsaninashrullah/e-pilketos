@@ -16,8 +16,8 @@ class SentinelGuest
      */
     public function handle($request, Closure $next)
     {
-        if ($user = Sentinel::check()) { // user is not authenticated
-            return redirect('/')->with('error', 'Cant Access the page');
+        if (Sentinel::check()) { // user is authenticated
+            return back()->with('error', 'Cant Access the page');
         }
         return $next($request);
     }

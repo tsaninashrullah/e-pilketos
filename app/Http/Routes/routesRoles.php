@@ -10,5 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::resource('roles', 'RolesController');
+Route::group(['middleware' => 'admin'], function () {
+	Route::resource('roles', 'RolesController');
+});

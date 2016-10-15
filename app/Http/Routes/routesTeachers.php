@@ -10,5 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('teachers', 'UsersController@indexPengawas');
+Route::group(['middleware' => 'admin'], function () {
+	Route::get('teachers', 'UsersController@indexPengawas');
+});

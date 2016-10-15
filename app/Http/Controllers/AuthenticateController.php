@@ -34,11 +34,11 @@ class AuthenticateController extends Controller
         Sentinel::check();
         if ($user = Sentinel::authenticate($credentials))
         {
-            if (Sentinel::getUser()->status == 1 ) {
+            if(Sentinel::getUser()->status == 1 ) {
                 Sentinel::logout();
                 return redirect('/');
-            }elseif(Sentinel::inRole('admin')){
-                
+            }elseif(!Sentinel::inRole('user')){
+                return redirect('dashboard');
             }else{
                 return redirect('votes');
             }

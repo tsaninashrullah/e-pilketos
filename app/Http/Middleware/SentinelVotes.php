@@ -3,10 +3,9 @@
 namespace App\Http\Middleware;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-
 use Closure;
 
-class SentinelAuth
+class SentinelVotes
 {
     /**
      * Handle an incoming request.
@@ -17,8 +16,8 @@ class SentinelAuth
      */
     public function handle($request, Closure $next)
     {
-        if (!Sentinel::check()) { // user is not authenticated
-            return redirect('/')->with('error', 'You must be logged to view the page');
+        if (Sentinel::check()) { // user is authenticated
+            return redirect('votes')->with('error', 'Cant Access the page');
         }
         return $next($request);
     }

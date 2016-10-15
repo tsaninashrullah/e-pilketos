@@ -47,6 +47,8 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\SentinelAuth::class,
         'admin' => \App\Http\Middleware\SentinelAdmin::class,
         'back' => \App\Http\Middleware\SentinelGuest::class,    
+        'teacher' => \App\Http\Middleware\SentinelTeacher::class,    
+        'votes' => \App\Http\Middleware\SentinelVotes::class,    
         // 'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,

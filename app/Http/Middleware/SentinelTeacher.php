@@ -6,7 +6,7 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 use Closure;
 
-class SentinelAdmin
+class SentinelTeacher
 {
     /**
      * Handle an incoming request.
@@ -22,7 +22,7 @@ class SentinelAdmin
         if (!Sentinel::check()) { // user is not authenticated
             return redirect()->route('login')->with('error', $caption_log);
         }
-       if (!Sentinel::inRole('admin')) { // user is authenticated but he is a customer
+       if (Sentinel::inRole('user')) { // user is authenticated but he is a customer
             return redirect()->route('dashboard')->with('error', 'You are a customer and cannot access to backend section');
         }
         return $next($request);

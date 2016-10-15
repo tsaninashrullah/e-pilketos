@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/','UsersController@home')->name('home');
 
 Route::get('user-profile', function () {
     return view('users.profile');
+});
+Route::group(['middleware' => 'back'], function () {
+	Route::get('/','UsersController@home')->name('home');
 });
 
 Route::get('logout', 'AuthenticateController@logout');
@@ -22,6 +24,7 @@ Route::get('logout', 'AuthenticateController@logout');
 Route::group(['middleware' => 'admin'], function () {
 });
 Route::group(['middleware' => 'auth'], function () {
-});
-Route::group(['middleware' => 'back'], function () {
+	Route::get('dashboard',function(){
+		return view('dashboard-admin');
+	});
 });

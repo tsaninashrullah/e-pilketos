@@ -10,5 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('login', 'AuthenticateController@login');
+Route::group(['middleware' => 'back'], function () {
+	Route::get('login', 'AuthenticateController@login');
+});
 Route::post('auth', 'AuthenticateController@auth');

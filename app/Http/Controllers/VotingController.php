@@ -21,6 +21,12 @@ class VotingController extends Controller
         return view('votes.index')->with('list_candidates',$candidates);
     }
 
+    public function indexDashboard()
+    {
+        $candidates = Candidates::all();
+        return view('dashboard-admin')->with('list_candidates',$candidates);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

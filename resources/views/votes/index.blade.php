@@ -1,4 +1,3 @@
-
 @extends('layouts.layout_votes')
 @section('content')
 <br>

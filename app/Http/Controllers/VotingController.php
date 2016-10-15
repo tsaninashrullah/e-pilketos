@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+Use Illuminate\Http\Request;
 
-use App\Http\Requests;
+Use App\Http\Requests;
 
 Use App\Models\Candidates;
+Use App\Models\Votes;
+Use App\Models\Users;
+
+Use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+
+
 
 class VotingController extends Controller
 {
@@ -21,15 +27,6 @@ class VotingController extends Controller
         return view('votes.index')->with('list_candidates',$candidates);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,18 +34,27 @@ class VotingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $candidate = new candidates();
-                
-        $candidate->name = $request->name;
-        $candidate->address = $request->address;
-        $candidate->born = $request->born;
-        $candidate->email = $request->email;
-        $candidate->visi = $request->visi;
-        $candidate->misi = $request->misi;
-        $candidate->vote = "0";
-        $candidate->save();
+        $users_id = Sentinel::getUser()->id;
+        $candidate = Candidates::find($id);  
+        $votes = new Votes();    
+        $votes->candidates_id = $candidate->id;
+        $votes->users_id = $users_id;
+        $votes->save();
+
+
+        $candidates = Candidates::find($id);
+        $total_votes = $candidates->vote + 1;
+        $candidates->vote = $total_votes;
+        $candidates->save();
+
+        $user = Users::find($users_id);
+        $user->status = 1;
+        $user->save();
+        return redirect('logout');
+    
+
     }
 
     /**
@@ -57,9 +63,9 @@ class VotingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_vote($id)
     {
-        //
+       
     }
 
     /**

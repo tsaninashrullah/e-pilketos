@@ -1,3 +1,6 @@
+<?php
+Use App\Models\Candidates;
+?>
 @extends('layouts.layout_login')
 @section('content')
 
@@ -35,7 +38,11 @@
       <center>
         <p><a href="#" class="btn btn-primary" role="button">Profil</a></p>
         <h2>Polling Suara</h2>
-        0.34%
+        <?php
+        $voting = Candidates::find($candidates->id)->votes;
+        $total = (count($voting)/count($votes))*100;
+        echo $total.'%';
+        ?>
       </center>
       </div>
     </div>

@@ -1,4 +1,3 @@
-
 @extends('layouts.layout_votes')
 @section('content')
 <br>
@@ -17,6 +16,7 @@
 @foreach($list_candidates as $candidates)
 <div class="col-sm-6 col-md-4">
 <div class="thumbnail">
+    {{ Sentinel::getUser() }}
 <br>
  <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
       <div class="caption">
@@ -24,8 +24,13 @@
   <center>
     <h3>{{ $candidates->name }}</h3>
     <p></p>
-    <p><a href="#" class="btn btn-primary" role="button">Vote</a>
-  </center>
+    <p>
+    {{ Form::open(array('url' => 'votes_store/'.$candidates->id , 'method' => 'post')) }}
+      {{ Form::submit('Vote',array('class' => 'btn btn-primary btn-xs')) }}
+    {{  Form::close() }}
+    </p>  
+    <input type="text" id="txt">
+  </center>	
   </div>
 </div>
 </div>
@@ -33,6 +38,31 @@
 @endforeach
 @endif
 <script type="text/javascript">
+$( document ).ready(function() {
+    setTimeout(function(){ window.location = 'logout'; }, 3000);
+    startCount();
+	var c = 3;
+	var t;
+	var timer_is_on = 0;
 
+	function timedCount() {
+	    document.getElementById("txt").value = c;
+	    c = c - 1;
+	    t = setTimeout(function(){ timedCount() }, 1000);
+	}
+
+	function startCount() {
+	    if (!timer_is_on) {
+	        timer_is_on = 1;
+	        timedCount();
+	    }
+	}
+
+	function stopCount() {
+	    clearTimeout(t);
+	    timer_is_on = 0;
+	}
+
+});
 </script>
 @stop

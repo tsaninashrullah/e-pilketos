@@ -23,7 +23,7 @@ Route::get('logout', 'AuthenticateController@logout');
 
 Route::group(['middleware' => 'admin'], function () {
 });
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'teacher'], function () {
 	Route::get('dashboard',function(){
 		return view('dashboard-admin');
 	});

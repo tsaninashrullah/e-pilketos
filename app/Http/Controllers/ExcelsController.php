@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Input, DB, Excel, Hash;
 use App\Models\Candidates;
 use App\Models\Users;
-
 class ExcelsController extends Controller
 {
     public function import_candidates(Request $request)
@@ -29,8 +26,7 @@ class ExcelsController extends Controller
     		});
     	})->export('xlsx');
     }
-
-    public function import_users(Request $request)
+    public function import_user(Request $request)
     {
     	ini_set('max_execution_time', 300);
     	$file = $request->file('users');
@@ -90,12 +86,11 @@ class ExcelsController extends Controller
 	        return redirect('users')->with('users', $users);
     	}
     }
-
-    public function import_user(Request $request)
+    public function import_users(Request $request)
     {
 		ini_set('max_execution_time', 300);
     	$file = $request->file('users');
-        Excel::selectSheets('X')->load($file,function($reader){
+        Excel::load($file,function($reader){
 		    foreach($reader->toObject() as $result) {
 		        // Your model namespace here
 		        $model = new Users;
@@ -104,20 +99,41 @@ class ExcelsController extends Controller
 		        $model->address = $result->address;
 		        $model->gender = $result->gender;
 		        $model->born = $result->born;
-		        $model->graduate = '2019';
+		        $model->graduate = $result->graduate;
+		        $model->password = $result->password;
+		        $model->status = $result->status;
 		        $model->save();
 		    }
 	    });
         $users = Users::all();
         return redirect('users')->with('users', $users);
     }
-
     public function export_users($graduate)
     {
 		ini_set('max_execution_time', 300);
+		if ($graduate=="all") {
+			$users_1 = Users::all();
+	        foreach ($users_1 as $user) {
+	             $data1 [] = array(
+	                'id' => $user->id,
+	                'name' => $user->name,
+	                'nisn' => $user->nisn,
+	                'address' => $user->address,
+	                'born' => $user->born,
+	                'gender' => $user->gender,
+	                'graduate' => $user->graduate,
+	                'status' => $user->status,
+	                'password' => Hash::make($user->nisn),
+	                );
+	        }
+	        Excel::create('Users',function($excel)use($data1){
+	            $excel->sheet('All',function($sheet)use($data1){
+	                $sheet->fromArray($data1,null,'A1',false,false)->prependRow(array('id','Name','Nisn','Address','Born','Gender','graduate','status','Password'))->freezeFirstRow();
+	            });
+	        })->export('xlsx');
+		}
     	if ($graduate=="2019") {
 	        $users = Users::where('graduate', '=', $graduate)->get();
-	        dd($users);
 	        foreach ($users as $user) {
 	                 $data1 [] = array(
 	                    'id' => $user->id,

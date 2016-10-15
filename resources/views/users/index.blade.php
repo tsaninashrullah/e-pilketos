@@ -12,7 +12,6 @@ use App\Models\Users;
             <h3 class="title"><font color="white">Daftar Siswa</font></h3>
          </div>
             <div class="content">
-          <form>
         <div class="row">
         <div class="col-md-12">
           <div class="form-group">

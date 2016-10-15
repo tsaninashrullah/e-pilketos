@@ -24,7 +24,7 @@ class UsersRequest extends Request
     public function rules()
     {
         return [
-            //
+            'nisn'=>'required|unique:users',
         ];
     }
 }

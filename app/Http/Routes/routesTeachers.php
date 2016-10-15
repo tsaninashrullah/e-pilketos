@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('teachers', 'TeachersController');
+Route::get('teachers', 'UsersController@indexPengawas');

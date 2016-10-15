@@ -17,10 +17,15 @@ class Users extends SentinelUser
         'address',
     	'gender',
     	'nisn',
-    	'status',
-    	'password'
+        'status',
+    	'graduate',
+        'password',
+    	'type_id'
     ];
     public function activation() {
        return $this->hasOne('App\Models\Activations', 'user_id');
+    }
+    public function typeUsers() {
+       return $this->hasMany('App\Models\TypeUsers', 'id');
     }
 }

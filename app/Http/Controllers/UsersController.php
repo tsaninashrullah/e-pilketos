@@ -10,6 +10,8 @@ use App\Models\Candidates;
 
 use App\Http\Requests;
 
+use App\Models\TypeUsers;
+
 use App\Http\Requests\UsersRequest;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
@@ -25,9 +27,16 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = Users::paginate(15);
-        $user = Users::all();
+        $users = Users::where('type_id','=','3')->paginate(15);
+        $user = Users::where('type_id', '=', '3')->get();
         return view('users.index')->with('users', $users)->with('user_s', $user);
+    }
+
+    public function indexPengawas()
+    {
+        $users = Users::where('type_id','!=','3')->paginate(15);
+        $user = Users::where('type_id', '!=', '3')->get();
+        return view('teachers.index')->with('users', $users)->with('user_s', $user);
     }
 
     /**
@@ -35,7 +44,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $type = TypeUsers::all();
+        return view('users.create')
+            ->with('type', $type);
     }
 
     /**
@@ -49,11 +60,23 @@ class UsersController extends Controller
             'gender' => $request->gender,
             'born' => $request->born_date,
             'address' => $request->address,
+            'type_id' => $request->type,
             'status' => 0,
             'password' => $request->nisn,
         ];
         $user = Sentinel::registerAndActivate($credentials);
-        Session::flash('message',$request->input_user_id.' your photo success to post');
+        $use = Users::where('nisn', '=', $request->nisn)->get();
+        if ($request->type == "1") {
+            $role = Sentinel::findRoleByName('admin');
+            $role->users()->attach($use);
+        }elseif ($request->type == "2") {
+            $role = Sentinel::findRoleByName('teacher');
+            $role->users()->attach($use);
+        }else{
+            $role = Sentinel::findRoleByName('user');
+            $role->users()->attach($use);
+        }
+        Session::flash('message',$request->nisn.' your photo success to post');
         return redirect('users');
     }
 

@@ -42,12 +42,11 @@ use Cartalyst\Sentinel\Users\UserInterface;
           
           /* CSS custom for welcome page */
            .main-panel {
-              background: rgba(203, 203, 210, 0.15);
+              background: url('assets/img/home_page_epilketos.gif')no-repeat no-repeat center center fixed;
               position: relative;
               z-index: 2;
               width: calc(100%);
               min-height: 100%;
-              background-color: #2ecc71;
             }
             .btn-primary {
               border-color: transparent;

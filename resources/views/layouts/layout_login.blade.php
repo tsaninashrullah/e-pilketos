@@ -41,12 +41,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
         <style>   
           
           /* CSS custom for welcome page */
-            .content_home_page {
-              background-color: pink;
-              height: 100%;
-              width: 100%;
-              /*background-color: #999;*/
-            }
 
              .main-panel {
               background: rgba(203, 203, 210, 0.15);
@@ -55,20 +49,31 @@ use Cartalyst\Sentinel\Users\UserInterface;
               width: calc(100%);
               min-height: 100%;
             }
-            .main-panel > .content {
-              padding: 30px 15px;
-              min-height: calc(100%);
+            #bg {
+              background: url("<?php echo asset('assets/img/home_page_epilketos.gif')?>") no-repeat center center fixed;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
             }
             .content_body_one {
-              background-color: #2ecc71;
-              height: 50%;
+              color: #FFFFFF;
+              background-color: transparent;
+              padding-top: 40px;
+              padding-right: 30px;
+              padding-left: 30px;
+              height: 80%;
               width: 100%;
               /*background-color: #999;*/
             }
 
             .content_body_candidates {
+              padding-top: 40px;
+              padding-bottom: 40px;
+              padding-right: 30px;
+              padding-left: 30px;
               background-color: #ecf0f1;
-              height: 70%;
+              height: 90%;
               width: 100%;
               /*background-color: #999;*/
             }
@@ -97,6 +102,16 @@ use Cartalyst\Sentinel\Users\UserInterface;
               color: #FFFFFF;
               border-color: transparent;
             }
+
+            .row {
+              width: 30%;
+            }
+
+            .row_one {
+              width: 100%;
+            }
+
+            
             /* End CSS */
         </style>
 
@@ -130,7 +145,9 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <div class="wrapper">
     <!-- Sidebar -->
     <!-- Navbar -->
-    <div class="main-panel">
+    <div class="main-panel" id="bg">
+      <!-- Navbar -->
+      @include('shared.header_login')
        <!-- Content -->
         @yield('content')
     </div>

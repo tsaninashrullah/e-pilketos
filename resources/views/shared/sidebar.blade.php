@@ -1,15 +1,12 @@
 <div class="sidebar" data-color="blue"  data-image="{{ asset('assets/img/sidebar/sidebar_epilketos.gif')}}">
     <div class="sidebar-wrapper">
+        <center>
         <div class="logo">
-        
+        <font size=6>E-PILKETOS</font>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        </center>
         <ul class="nav">
-            <li>
+            <li class="active">
                 <a href="/">
                     <i class="material-icons">school</i>
                     <p>Halaman Utama </p>
@@ -34,8 +31,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                <i class="material-icons">bubble_chart</i>
+                <a href="../teachers">
+                <i class="material-icons">person</i>
                     <p>Pengawas</p>
                 </a>
             </li>

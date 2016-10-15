@@ -10,7 +10,7 @@ use App\Models\Roles;
     <div class="card">
          <div class="header">
             <h3 class="title"><font color="white">Daftar Hak Akses</font></h3>
-         </div>
+         </div> 
         <div class="row">
         <div class="col-md-12">
           <div class="form-group">

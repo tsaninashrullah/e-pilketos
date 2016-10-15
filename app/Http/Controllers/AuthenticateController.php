@@ -40,7 +40,7 @@ class AuthenticateController extends Controller
             }elseif(Sentinel::inRole('admin')){
                 
             }else{
-                return redirect('vote');
+                return redirect('votes');
             }
             Session::flash('notice', 'Success login');
             return redirect('/')->with('user', $credentials);

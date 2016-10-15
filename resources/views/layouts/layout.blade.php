@@ -41,6 +41,10 @@ use Cartalyst\Sentinel\Users\UserInterface;
         <style>   
           
           /* CSS custom for welcome page */
+           #bg {
+              background: url("<?php echo asset('assets/img/home_page_epilketos.gif')?>") no-repeat center center fixed;
+            }
+            
            .btn-primary {
               border-color: transparent;
              color: #FFFFFF;
@@ -65,25 +69,7 @@ use Cartalyst\Sentinel\Users\UserInterface;
             .btn .caret {
               border-top-color: #FFFFFF;
             }
-            .content_body_one {
-              background-color: pink;
-              height: 100%;
-              width: 100%;
-              /*background-color: #999;*/
-            }
-            .content_body_two {
-              background-color: blue;
-              height: 40%;
-              width: 100%;
-              /*background-color: #999;*/
-            }
-            .content_body_three {
-              background-color: purple;
-              height: 31%;
-              width: 100%;
-              /*background-color: #999;*/
-            }
-
+            
             .card-input {
               background-color: #ecf0f1;
             }
@@ -92,9 +78,12 @@ use Cartalyst\Sentinel\Users\UserInterface;
               background-color: #7f8c8d;
             }
 
-             .main-panel {
-              background-color: #2ecc71;
-              /*background-color: #999;*/
+            .border_logo {
+              margin-top: 30px;
+              padding: 20px;
+              border: 2px solid #FFFFFF;
+              width: 200px;
+              height: 70px;
             }
 
             /* End CSS */
@@ -106,14 +95,14 @@ use Cartalyst\Sentinel\Users\UserInterface;
 
     <script src="<?php echo asset('assets/library/jquery/jquery-1.10.2.js')?>" type="text/javascript"></script>
     <script src="<?php echo asset('assets/js/bootstrap.min.js')?>" type="text/javascript"></script>
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="<?php echo asset('assets/library/light_bootstrap/js/bootstrap-checkbox-radio-switch.js')?>"></script>
+    <!--  Charts Plugin -->
+    <script src="<?php echo asset('assets/library/light_bootstrap/js/chartist.min.js')?>"></script>
 
     <!--  Notifications Plugin    -->
     <script src="<?php echo asset('assets/library/light_bootstrap/js/bootstrap-notify.js')?>"></script>
-    <!--  Checkbox, Radio & Switch Plugins -->
-    <script src="<?php echo asset('assets/library/light_bootstrap/js/bootstrap-checkbox-radio-switch.js')?>"></script>
 
-    <!--  Charts Plugin -->
-    <script src="<?php echo asset('assets/library/light_bootstrap/js/chartist.min.js')?>"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/library/light_bootstrap/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -125,13 +114,14 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <!-- Datepicker JS -->
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
  
-    <!--  JS Custom Original template    -->
-    <script src="<?php echo asset('assets/library/custom/js/custom.js')?>"></script>
+    <script type="text/javascript">
+
+    </script>
     <div class="wrapper">
     <!-- Sidebar -->
     @include('shared.sidebar')
     <!-- Navbar -->
-    <div class="main-panel">
+    <div class="main-panel" id="bg">
       @include('shared.header')
        <!-- Content -->
         @yield('content')

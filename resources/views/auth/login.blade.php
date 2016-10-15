@@ -32,24 +32,38 @@
         <style>   
           
           /* CSS custom for welcome page */
-            .content_body_one {
-              background-color: pink;
-              height: 100%;
-              width: 100%;
-              /*background-color: #999;*/
+
+             .main-panel {
+              background: rgba(203, 203, 210, 0.15);
+              position: relative;
+              z-index: 2;
+              width: calc(100%);
+              min-height: 100%;
+              padding-top: 70px;
             }
-            .content_body_two {
-              background-color: blue;
-              height: 31%;
-              width: 100%;
-              /*background-color: #999;*/
+            #bg {
+              background: url("<?php echo asset('assets/img/home_page_epilketos.gif')?>") no-repeat center center fixed;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
             }
-            .content_body_three {
-              background-color: purple;
-              height: 31%;
-              width: 100%;
-              /*background-color: #999;*/
+
+            .card-user {
+              background-color: #ecf0f1;
             }
+            .btn-primary {
+            border-color: transparent;
+             color: #FFFFFF;
+             background-color: #34495e;
+            }
+            
+            .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+              background-color: #34495e;
+              color: #FFFFFF;
+              border-color: transparent;
+            }
+            
             /* End CSS */
         </style>
 
@@ -72,40 +86,54 @@
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="<?php echo asset('assets/library/light_bootstrap/js/light-bootstrap-dashboard.js')?>"></script>
-<br>
+     <div class="wrapper">
+    <div class="main-panel" id="bg">
    <div class="content">
-    <div class="col-md-6 col-md-offset-3">
-    <div class="card card-user">
-      <div class="container-fluid">
-          <div class="header">
-            <h2 class="title" align="center">Login Form</h2>
-          </div>
-          {{ Form::open(array('url' => 'auth', 'files' => true)) }}
-          <div class="row">
-            <div class="col-lg-12">
-            <hr>
-              <div class="form-group">
-              {{ Form::Label('nisn','Nisn', array('class' => 'control-label')) }}
-              {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control')) }}
-              {{ $errors->first('nisn') }}
+   <div class="col-xs-12">
+    <h3 align="center">
+       <font color = "white">
+        Silahkan login untuk memilih ketua OSIS tahun ajaran 2016-2017.
+       </font>
+   </h3>
+   </div>
+   <div class="col-xs-4">
+   </div>
+     <div class="col-lg-4">
+        <br>
+        <div class="card card-user">
+        <div class="container-fluid">
+            <div class="header">
+            </div>
+            {{ Form::open(array('url' => 'auth', 'files' => true)) }}
+            <div class="row">
+              <div class="col-lg-12">
+              <hr>
+                <div class="form-group">
+                {{ Sentinel::check() }}
+                mantap
+                {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN')) }}
+                {{ $errors->first('nisn') }}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="form-group">
-                  {{ Form::Label('password','Password', array('class' => 'control-label')) }}
-                  {{ Form::password('password', ['class' => 'form-control']) }}
-                  {{ $errors->first('password') }}
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'PASSWORD']) }}
+                    {{ $errors->first('password') }}
+                </div>
               </div>
             </div>
+            {{ Form::submit('Masuk', array('class' => 'btn btn-primary btn-lg btn-block')) }}
+            {{ Form::close() }}
+            <br>
           </div>
-          {{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
-          {{ Form::close() }}
-          <br>
         </div>
+        </div>
+      <div class="col-xs-4">
       </div>
-    </div>
+  </div>
+  </div>
   </div>
   </body>
 </html>

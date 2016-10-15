@@ -12,7 +12,6 @@ use App\Models\Users;
             <h3 class="title"><font color="white">Daftar Siswa</font></h3>
          </div>
             <div class="content">
-          <form>
         <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -34,12 +33,6 @@ use App\Models\Users;
               {{ Form::open(array('url' => 'import_users', 'files' => true)) }}
               <div class="modal-body">
                 <p>{{ Form::file('users') }}</p>
-                {{ Form::label('Select class that will import') }}
-                <select class="form-control" name="graduate">
-                  <option value="2019">Class 1</option>
-                  <option value="2018">Class 2</option>
-                  <option value="2017">Class 3</option>
-                </select>
               </div>
 
               <div class="modal-footer">
@@ -62,6 +55,8 @@ use App\Models\Users;
               <a href="bootstrap-elements.html" data-target="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void(0)" id="myBtn">Import</a></li>
+                <li class="divider"></li>
+                <li><a href="export_users/all">Export Semua</a></li>
                 <li class="divider"></li>
                 <li><a href="export_users/2019">Export Kelas 10</a></li>
                 <li><a href="export_users/2018">Export Kelas 11</a></li>

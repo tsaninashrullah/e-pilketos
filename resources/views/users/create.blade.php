@@ -39,18 +39,6 @@
                 {{ $errors->first('address') }}
                 </div>
             </div>
-             <div class="col-lg-4">
-                <div class="form-group">
-                {{ Form::text('status', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'Status')) }}
-                {{ $errors->first('status') }}
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                {{ Form::password('', ['class' => 'form-control', 'placeholder' => 'PASSWORD']) }}
-                {{ $errors->first('password') }}
-                </div>
-            </div>
             <div class="col-lg 4">
               {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
             </div>

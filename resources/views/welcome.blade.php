@@ -1,53 +1,28 @@
 @extends('layouts.layout_login')
 @section('content')
+
 {{ Sentinel::check() }}
     <div class="content_body_one">
-        <div class="col-lg-4">
-        <font color = "white"><h2>E-PILKETOS<h4>SMK PGRI 1 CIMAHI</h4></h2>
-        <h5>Kepemimpinan dalam kepengurusan OSIS yang berperan sebagai salah satu jalur pembinaan siswa harus mampu mewujudkan tugas pokok dan fungsinya, secara teratur dan terencana. Suarakan aspirasimu!
-        </h5></font>
-        </div>
-        <div class="col-lg-4">
-        <br>
-         <img src="assets/img/home/home_epilketos.png" width="400px" height="300px">
-         </div>
-        <div class="col-lg-4">
-        <br>
-        <div class="card card-user">
-        <div class="container-fluid">
-            <div class="header">
-            <br>
-              <h2 class="title" align="center">VOTE</h2>
-            </div>
-            {{ Form::open(array('url' => 'auth', 'files' => true)) }}
-            <div class="row">
-              <div class="col-lg-12">
-              <hr>
-                <div class="form-group">
-                {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN')) }}
-                {{ $errors->first('nisn') }}
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="form-group">
-                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'PASSWORD']) }}
-                    {{ $errors->first('password') }}
-                </div>
-              </div>
-            </div>
-            {{ Form::submit('Masuk', array('class' => 'btn btn-primary btn-lg btn-block')) }}
-            {{ Form::close() }}
-            <br>
-          </div>
-        </div>
-        </div>
+    <div class="col-xs-1">
+    </div>
+      <div class="col-xs-5"><h2>E-PILKETOS</h2>
+          <h4>Kepemimpinan dalam kepengurusan OSIS yang berperan sebagai salah satu jalur pembinaan siswa harus mampu mewujudkan tugas pokok dan fungsinya, secara teratur dan terencana. Suarakan aspirasimu!
+          </h4>
+      </div>
+      <div class="col-xs-5">
+      <center>
+         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="498px">
+      </center>
+      </div>
+      <div class="col-xs-1">
+      </div>
     </div>
     <div class="content_body_candidates">
+
     @if(count($list_candidates) == 0)
     <br><br><br><br><br><h4 align="center">Maaf data kandidat OSIS tidak ditemukan, mohon masukan data kandidat terlebih dahulu</h4>
     @else
+    <h3><center>Calon Ketua OSIS SMK PGRI 1 CIMAHI</center></h3>
     <br>
     @foreach($list_candidates as $candidates)
     <div class="col-sm-6 col-md-4">

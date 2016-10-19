@@ -12,6 +12,8 @@ use App\Http\Requests;
 
 use App\Models\TypeUsers;
 
+use App\Models\Votes;
+
 use App\Http\Requests\UsersRequest;
 
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
@@ -147,6 +149,23 @@ class UsersController extends Controller
 
     public function home (){
     $candidates = Candidates::all();
-    return view('welcome')->with('list_candidates',$candidates);
+    $candidate = Votes::all();
+
+    return view('welcome')
+    ->with('list_candidates',$candidates)
+    ->with('votes',$candidate);
     }
+
+     public function type()
+        {
+            ini_set('max_execution_time', 300);
+            $users = Users::all();
+            foreach ($users as $key) {
+                $user = Users::find($key->id);
+                $user->type_id = 3;
+                $user->save();
+            }
+            return redirect('users')
+                ->with('users', $users);
+        }
 }

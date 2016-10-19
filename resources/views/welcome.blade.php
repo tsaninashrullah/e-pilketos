@@ -1,3 +1,6 @@
+<?php
+Use App\Models\Candidates;
+?>
 @extends('layouts.layout_login')
 @section('content')
 
@@ -5,7 +8,8 @@
     <div class="content_body_one">
     <div class="col-xs-1">
     </div>
-      <div class="col-xs-5"><h2>E-PILKETOS</h2>
+      <div class="col-xs-5"><h2>e-<strong>PILKETOS</strong></h2>
+      <h3><strong>SMK </strong><small style="color:white">PGRI 1 Cimahi</small></h3>
           <h4>Kepemimpinan dalam kepengurusan OSIS yang berperan sebagai salah satu jalur pembinaan siswa harus mampu mewujudkan tugas pokok dan fungsinya, secara teratur dan terencana. Suarakan aspirasimu!
           </h4>
       </div>
@@ -35,7 +39,15 @@
       <center>
         <p><a href="#" class="btn btn-primary" role="button">Profil</a></p>
         <h2>Polling Suara</h2>
-        0.34%
+        <?php
+        $voting = Candidates::find($candidates->id)->votes;
+        if (count($voting) > 0) {
+          $total = (count($voting)/count($votes))*100;
+          echo $total.'%';
+        }else{
+          echo "Belum Ada Pemilihan";
+        }
+        ?>
       </center>
       </div>
     </div>

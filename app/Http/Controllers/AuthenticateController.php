@@ -35,15 +35,13 @@ class AuthenticateController extends Controller
         if ($user = Sentinel::authenticate($credentials))
         {
             if(Sentinel::getUser()->status == 1 ) {
-                Sentinel::logout();
-                return redirect('/');
-            }elseif(!Sentinel::inRole('user')){
-                return redirect('dashboard');
-            }else{
-                return redirect('votes');
-            }
-            Session::flash('notice', 'Success login');
-            return redirect('/')->with('user', $credentials);
+-                Sentinel::logout();
+-                return redirect('/');
+-            }elseif(Sentinel::inRole('admin') || Sentinel::inRole('teacher')){
+-                return redirect('dashboard');
+-            }else{
+-                return redirect('votes');
+-            }
         }
         else
         {

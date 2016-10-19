@@ -22,12 +22,15 @@ use App\Models\Users;
 				    <h3>{{ $candidates->name }}</h3>
 				    <p>Vote Sementara</p>
 				    <p>
-				    <?php
-				    	$jum_voting = Votes::where('candidates_id', '=', $candidates->id);
-				    	var_dump($jum_voting);
-				    	$jumlah_voting = count($jum_voting);
-					?> 
-					{{ $jumlah_voting }}
+                    <?php
+                    $voting = $candidates->votes;
+                    if (count($voting) > 0) {
+                      $total = (count($voting)/count($votes))*100;
+                      echo $total.'%';
+                    }else{
+                      echo "Belum Ada Pemilihan";
+                    }
+                    ?>
 					</p>
 				  </center>
 				  </div>

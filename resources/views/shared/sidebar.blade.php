@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper">
         <center>
         <div class="logo">
-        <font size=6>E-PILKETOS</font>
+        <font size=5>e-<strong>PILKETOS</strong></font>
         </div>
         </center>
         <ul class="nav">

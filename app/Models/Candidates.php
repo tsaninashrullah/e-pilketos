@@ -17,4 +17,13 @@ class Candidates extends Model
     	'image',
     	'vote'
     ];
+
+    public function votes(){
+    return $this->hasMany('App\Models\Votes', 'candidates_id');
+    }
+
+    public function user() {
+    return $this->belongsTo('App\Models\User', 'users_id');
+    }
+
 }

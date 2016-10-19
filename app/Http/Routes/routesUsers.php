@@ -16,6 +16,7 @@ Route::group(['middleware' => 'admin'], function () {
 	Route::post('users/active/{id}', 'UsersController@active')->name('users.active');
 	Route::post('users/deactive/{id}', 'UsersController@deactive')->name('users.deactive');
 });
+	
 Route::group(['middleware' => 'teacher'], function () {
 	Route::resource('users', 'UsersController');
 });

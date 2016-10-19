@@ -14,7 +14,7 @@ Use App\Models\Candidates;
       </div>
       <div class="col-xs-5">
       <center>
-         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="498px">
+         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="502px">
       </center>
       </div>
       <div class="col-xs-1">
@@ -36,7 +36,7 @@ Use App\Models\Candidates;
      <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
       <div class="caption">
       <center>
-        <p><a href="#" class="btn btn-primary" role="button">Profil</a></p>
+        <p><a href="show_candidate/{{$candidates->id}}" class="btn btn-primary" role="button">Profil</a></p>
         <h2>Polling Suara</h2>
         <?php
         $voting = Candidates::find($candidates->id)->votes;
@@ -55,7 +55,7 @@ Use App\Models\Candidates;
     </div>
     <div class="col-xs-2">
     <br>
-    <!-- <font color = "white"><h6>SMK PGRI 1 CIMAHI</h6></font> -->
+    <p><font color = "white">&copy;2016 Tsani Nashrullah </font><p>
     </div>
     <div class="col-xs-5">
     </div>

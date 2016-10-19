@@ -49,6 +49,53 @@ use Cartalyst\Sentinel\Users\UserInterface;
               width: calc(100%);
               min-height: 100%;
             }
+           /* CSS custom for welcome page */
+           #bg {
+              background: url("<?php echo asset('assets/img/home_page_epilketos.gif')?>") no-repeat center center fixed;
+            }
+            
+           .btn-primary {
+              border-color: transparent;
+             color: #FFFFFF;
+             background-color: #34495e;
+            }
+            .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+              background-color: #34495e;
+              color: #FFFFFF;
+              border-color: transparent;
+            }
+            .btn-success {
+             border-color: transparent;
+             color: #FFFFFF;
+             background-color: #2ecc71;
+            }
+            .btn-success:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+              background-color: #2ecc71;
+              color: #FFFFFF;
+              border-color: transparent;
+            }
+            
+            .btn .caret {
+              border-top-color: #FFFFFF;
+            }
+            
+            .card-input {
+              background-color: #ecf0f1;
+            }
+
+            .header {
+              background-color: #7f8c8d;
+            }
+
+            .border_logo {
+              margin-top: 30px;
+              padding: 20px;
+              border: 2px solid #FFFFFF;
+              width: 200px;
+              height: 70px;
+            }
+
+            /* End CSS */
             #bg {
               background: url("<?php echo asset('assets/img/home_page_epilketos.gif')?>") no-repeat center center fixed;
                 background-size: cover;
@@ -92,17 +139,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
             .card-user {
               background-color: #ecf0f1;
             }
-            .btn-primary {
-              border-color: transparent;
-             color: #FFFFFF;
-             background-color: #34495e;
-            }
-            .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
-              background-color: #34495e;
-              color: #FFFFFF;
-              border-color: transparent;
-            }
-
             .row {
               width: 30%;
             }

@@ -109,8 +109,6 @@
               <div class="col-lg-12">
               <hr>
                 <div class="form-group">
-                {{ Sentinel::check() }}
-                mantap
                 {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN', 'maxlength'=>'10')) }}
                 {{ $errors->first('nisn') }}
                 </div>

@@ -12,5 +12,6 @@
 */
 Route::group(['middleware' => 'back'], function () {
 	Route::get('login', 'AuthenticateController@login');
+
 });
 Route::post('auth', 'AuthenticateController@auth');

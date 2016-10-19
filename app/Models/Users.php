@@ -25,7 +25,4 @@ class Users extends SentinelUser
     public function activation() {
        return $this->hasOne('App\Models\Activations', 'user_id');
     }
-    public function typeUsers() {
-       return $this->hasMany('App\Models\TypeUsers', 'id');
-    }
 }

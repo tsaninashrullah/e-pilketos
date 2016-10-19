@@ -32,7 +32,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li class="divider"></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="../logout">Logout</a></li>
                   </ul>
             </li>
             <li>

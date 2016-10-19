@@ -9,9 +9,9 @@
         <meta name="viewport" content="width=device-width" />
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <!-- image favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.ico')}}">
+        <link rel="icon" type="image/png" href="{{asset('uploads/assets/Logo_PGRI.png')}}">
               
-        <title>Laravel 5.2</title>
+        <title>e-PILKETOS</title>
    
         <!-- Bootstrap core CSS     -->
         <link href="<?php echo asset('assets/css/bootstrap.min.css')?>" rel="stylesheet" />
@@ -86,14 +86,15 @@
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="<?php echo asset('assets/library/light_bootstrap/js/light-bootstrap-dashboard.js')?>"></script>
-     <div class="wrapper">
-    <div class="main-panel" id="bg">
-   <div class="content">
+ <div class="wrapper">
+  <div class="main-panel" id="bg">
    <div class="col-xs-12">
     <h3 align="center">
-       <font color = "white">
-        Silahkan login untuk memilih ketua OSIS tahun ajaran 2016-2017.
-       </font>
+     <font color = "white">
+       <img src="{{ asset('uploads/assets/Logo_PGRI.png') }}" style="max-height:200px;max-width:200px;margin-top:10px;">
+        <h2>e-<strong>PILKETOS</strong></h2>
+        <h3><strong>SMK</strong>PGRI 1 Cimahi </h3>
+     </font>
    </h3>
    </div>
    <div class="col-xs-4">
@@ -128,9 +129,6 @@
           </div>
         </div>
         </div>
-      <div class="col-xs-4">
-      </div>
-  </div>
   </div>
   </div>
   </body>

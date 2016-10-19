@@ -24,9 +24,15 @@ class VotingController extends Controller
     public function index()
     {
         $candidates = Candidates::all();
-        return view('votes.index')->with('list_candidates',$candidates);
+        $votes = Votes::all();
+        return view('votes.index')->with('list_candidates',$candidates)->with('votes', $votes);
     }
 
+    public function indexDashboard()
+    {
+        $candidates = Candidates::all();
+        return view('dashboard-admin')->with('list_candidates',$candidates);
+    }
 
     /**
      * Store a newly created resource in storage.

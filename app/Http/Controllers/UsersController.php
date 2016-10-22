@@ -91,6 +91,7 @@ class UsersController extends Controller
         return view('users.show')->with('list_users',$users);
     }
 
+
     /**
      * Return view to form edit user
      */
@@ -157,15 +158,35 @@ class UsersController extends Controller
     }
 
      public function type()
-        {
-            ini_set('max_execution_time', 300);
-            $users = Users::all();
-            foreach ($users as $key) {
-                $user = Users::find($key->id);
-                $user->type_id = 3;
-                $user->save();
-            }
-            return redirect('users')
-                ->with('users', $users);
+    {
+        ini_set('max_execution_time', 300);
+        $users = Users::all();
+        foreach ($users as $key) {
+            $user = Users::find($key->id);
+            $user->type_id = 3;
+            $user->save();
         }
+        return redirect('users')
+            ->with('users', $users);
+    }
+    public function quick_count()
+    {
+        $candidates = Candidates::all();
+        $candidate = Votes::all();
+
+        return view('quick_count')
+        ->with('list_candidates',$candidates)
+        ->with('votes',$candidate);
+    }
+
+    public function show_candidate($id)
+    {
+        $candidate = Candidates::find($id);
+        $vote = Votes::all();
+        return view('candidate.show')
+        ->with('candidate', $candidate)
+        ->with('votes',$vote);
+
+    }
+
 }

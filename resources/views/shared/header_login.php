@@ -16,8 +16,13 @@
                         Home
                   </a>
             </li>
+            <li>
+                  <a href="../quick_count">
+                        Quick Count
+                  </a>
+            </li>
              <li>
-                  <a href="login">
+                  <a href="../login">
                         Login
                   </a>
             </li>

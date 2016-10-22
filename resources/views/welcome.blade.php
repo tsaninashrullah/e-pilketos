@@ -15,26 +15,26 @@ Use App\Models\Candidates;
       </div>
       <div class="col-xs-5">
       <center>
-         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="502px">
+         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="502px"  media="(style="width:auto;")" class="img-responsive">
       </center>
       </div>
       <div class="col-xs-1">
       </div>
     </div>
     <div class="content_body_candidates">
-
     @if(count($list_candidates) == 0)
     <br><br><br><br><br><h4 align="center">Maaf data kandidat OSIS tidak ditemukan, mohon masukan data kandidat terlebih dahulu</h4>
     @else
     <h3><center>Calon Ketua OSIS SMK PGRI 1 CIMAHI</center></h3>
     <br>
     @foreach($list_candidates as $candidates)
-    <div class="col-sm-6 col-md-4">
+    <center>
+    <div class="col-xs-6 col-xs-4">
     <div class="thumbnail">
       <center>
       <h3>{{ $candidates->name }}</h3>
       </center>
-     <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
+      <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="width:auto;" class="img-circle">
       <div class="caption">
       <center>
         <p><a href="show_candidate/{{$candidates->id}}" class="btn btn-primary" role="button">Profil</a></p>
@@ -52,6 +52,7 @@ Use App\Models\Candidates;
       </div>
     </div>
     </div>
+    </center>
     @endforeach
     @endif
     </div>

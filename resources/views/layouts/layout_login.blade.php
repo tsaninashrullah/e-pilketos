@@ -139,6 +139,7 @@ use Cartalyst\Sentinel\Users\UserInterface;
             .card-user {
               background-color: #ecf0f1;
             }
+            
             .row {
               width: 30%;
             }
@@ -146,6 +147,58 @@ use Cartalyst\Sentinel\Users\UserInterface;
             .row_one {
               width: 100%;
             }
+
+            /* For mobile phones: */
+            @media only screen and (max-width: 1024px) {
+              [class*="col-"] {
+                  width: 100%;
+              }
+              [class*="thumbnail-"] {
+                  width: auto;
+                  height: auto;
+              }
+              [class*="img-circle-"] {
+                  width: auto;
+                  height: auto;
+              }
+              [class*="content_body_one"] {
+                  width: auto;
+                  height: 200%;
+              }
+              [class*="content_body_candidates"] {
+                  width: auto;
+                  height: 330%;
+              }
+              [class*="content_body_three"] {
+                  width: auto;
+                  height: 10%;
+              }
+              h2{
+                font-size: 20px;
+              }
+              h3{
+                font-size: 20px;          
+              }
+              h4{
+                font-size: 15px;                
+              }
+            }
+                /* For desktop: */
+            /*@media only screen and (min-width: 1024px) {
+
+                .col-1 {width: 8.33%;}
+                .col-2 {width: 16.66%;}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33.33%;}
+                .col-5 {width: 41.66%;}
+                .col-6 {width: 50%;}
+                .col-7 {width: 58.33%;}
+                .col-8 {width: 66.66%;}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83.33%;}
+                .col-11 {width: 91.66%;}
+                .col-12 {width: 100%;}
+            }*/
 
             
             /* End CSS */

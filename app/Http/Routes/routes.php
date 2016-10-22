@@ -12,17 +12,19 @@
 */
 
 
-Route::get('user-profile', function () {
-    return view('users.profile');
-});
+
 Route::group(['middleware' => 'back'], function () {
 	Route::get('/','UsersController@home')->name('home');
-	Route::get('show_candidate/{id}', 'VotingController@show_candidate')->name('show_candidate');
+	Route::get('quick_count', 'UsersController@quick_count');
+	Route::get('show_candidate/{id}', 'UsersController@show_candidate');
+
+
 });
 
 Route::get('logout', 'AuthenticateController@logout');
 
 Route::group(['middleware' => 'admin'], function () {
+
 });
 Route::group(['middleware' => 'teacher'], function () {
 	Route::get('dashboard','VotingController@indexDashboard');

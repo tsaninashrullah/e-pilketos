@@ -1,27 +1,52 @@
-# Laravel PHP Framework
+#Dokumentasi e-Pilketos SMK PGRI 1 Cimahi
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+##Deskripsi
+<hr>
+Ini adalah salah satu aplikasi pemilihan ketua osis, berbasis laravel dan sql.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+##Fitur
+<hr>
+Pada Aplikasi ini tersedia beberapa fitur diantaranya
+<li>Role Users</li>
+<li>Pengaturan Waktu dalam pemilihan</li>
+<li>Sistem Vote</li>
+<li>Aktivasi Akun</li>
+<li>Export Import data dengan file Excel</li>
+<li>Tampilan yang responsive untuk web maupun mobile (HP)</li>
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+##Kebutuhan Sistem
+<hr>
+1. PHP 5.5 ++
+2. MySql or Postgresql
+3. Git Bash (For linux using terminal)
+4. Composer (last update)
 
-## Official Documentation
+##Instalasi
+<hr>
+1. Pertama pastikan anda telah mendownload atau clone repository ini. (bagi yang belum daftar ssh keygen gunakan link https untuk mengclone berikut command nya "<code>git clone https://github.com/tsaninashrullah/e-pilketos.git</code>", dan untuk yang sudah mendaftarkan ssh keygennya bisa menggunakan command "<code>git clone git@github.com:tsaninashrullah/e-pilketos.git</code>" pada git bash atau terminal).
+2. Setelah proses clone atau download repository beres masukkan command "<code>composer install</code>" pada git bash atau terminal untuk menginstall semua vendor yang diperlukan oleh e-Pilketos ini, tunggu hingga proses selesai.
+3. Pastikan semua vendor terinstall, langkah selanjutnya adalah menambahkan file .env sebagai konfigurasi untuk local server kita (contoh ada pada file .env.example).
+4. Save file .env dan masukkan command "<code>php artisan key:generate</code>" untuk menggenerate kan APP_KEY pada .env kita.
+5. Setelah itu buatlah database di Mysql atau postgresql sesuai dengan nama yang telah kita daftarkan pada .env kita.
+6. Pastikan nama database sesuai dengan nama database pada .env kita.
+7. Gunakan command "<code>php artisan migrate</code>" untuk menambahkan migrasi/menggenerate kan tabel yang ada pada aplikasi ini.
+8. Setelah selesai proses migrasi tabel selanjutnya jalankan command "<code>php artisan db:seed</code>" untuk menambahkan data master.
+9. Setelah selesai semua proses diatas jalankan command "<code>php artisan serve</code>" untuk menyiapkan server local untuk aplikasi e-Pilketos ini.
+10. Masuk lah dengan link "<code>localhost:8000</code>"
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+*Catatan :
+<li>Proses ini harus menggunakan koneksi internet</li>
+<li>Semua command dijalankan di terminal(linux) atau di git bash(windows/macos)</li>
+<li>Jika anda akan mengclone projek ini pastikan anda telah mendapat permission dari user yang membuat repository ini/bisa langsung contact ke tsani.nashrullah@gmail.com</li>
 
-## Contributing
+##Thanks to
+[Laravel](http://laravel.com/docs)
+[Git](https://git-scm.com/)
+[PHP](https://php.net)
+[Composer](https://getcomposer.org/)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Best Regards,
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+e-Pilketos Team

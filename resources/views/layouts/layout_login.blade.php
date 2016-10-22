@@ -150,58 +150,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
                 [class*="col-"] {
                     width: 100%;
                 }
-
-            }
-            /* header*/
-           ul.topnav {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              background-color: transparent;
-            }
-
-            ul.topnav li {float: right;}
-
-            ul.topnav li a {
-              display: inline-block;
-              color: #f5f5f5;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-              transition: 0.3s;
-              font-size: 17px;
-            }
-
-            ul.topnav li a:hover {color: #FFFFFF;}
-
-            ul.topnav li.icon {display: none;}
-
-            @media screen and (max-width:680px) {
-              ul.topnav {background-color: #34495E;}
-
-              ul.topnav li:not(:first-child) {display: none;}
-              ul.topnav li.icon {
-                float: right;
-                display: inline-block;
-              }
-            }
-
-            @media screen and (max-width:680px) {
-              ul.topnav.responsive {position: relative;}
-              ul.topnav.responsive li.icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-              }
-              ul.topnav.responsive li {
-                float: none;
-                display: inline;
-              }
-              ul.topnav.responsive li a {
-                display: block;
-                text-align: left;
-              }
             }
             
             /* End CSS */
@@ -235,6 +183,10 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <!--  JS Custom Original template    -->
     <script src="<?php echo asset('assets/library/custom/js/custom.js')?>"></script>
     <div class="wrapper">
+<<<<<<< HEAD
+=======
+    <!-- Navbar -->
+>>>>>>> b3d2d92b5e92d1f9c3100b67b991b1ccb8076004
     <div class="main-panel" id="bg">
       <!-- Navbar -->
       @include('shared.header_login')

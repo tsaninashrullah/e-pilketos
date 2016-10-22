@@ -5,8 +5,7 @@ use App\Models\Roles;
 @section('content')
 <br>
 <div class="container-fluid">
-    <div class="col-lg-12">
-    <div class="col-lg-12">
+    <div class="content">
     <div class="card">
          <div class="header">
             <h3 class="title"><font color="white">Daftar Hak Akses</font></h3>
@@ -22,10 +21,11 @@ use App\Models\Roles;
             </div>
         </div>
         @else
-        <div class="col-lg-6">
+        <div class="col-lg-12">
+          &nbsp;
         </div>
-        <div class="col-lg-6">
-        <div class="form-group">
+        <div class="col-lg-6 pull-right">
+        <div class="form-group pull-right">
              <div class="btn-group">  
               {{ link_to('roles/create', 'Create', array('class' => 'btn btn-raised btn-primary')) }}
               <a href="javascript:void(0)" class="btn btn-success">Excel</a>

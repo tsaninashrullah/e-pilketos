@@ -6,6 +6,10 @@
 <br>
 <h4 align="center">Sorry vote doesn't available, entry candidates before vote</h4>
 @else
+<h4 align="center" style="color:white">
+	Waktu anda Tinggal
+</h4>
+<center><input type="text" disabled="true" value="60" id="txt" class="form-control" style="width:4%"></center>
  <h3 align="center">
  <font color = "white">
 	Silahkan pilih calon ketua OSIS tahun ajaran 2016-2017.

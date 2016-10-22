@@ -25,7 +25,9 @@ class VotingController extends Controller
     {
         $candidates = Candidates::all();
         $votes = Votes::all();
-        return view('votes.index')->with('list_candidates',$candidates)->with('votes', $votes);
+        return view('votes.index')
+        ->with('list_candidates',$candidates)
+        ->with('votes', $votes);
     }
 
     public function indexDashboard()

@@ -37,14 +37,14 @@
 @endforeach
 </div>
 <div class="col-xs-12">
-    <h3 id="txt"></h3>
+    <span id="txt"></span>
 </div>
 @endif
 <script type="text/javascript">
 $( document ).ready(function() {
-    setTimeout(function(){ window.location = 'logout'; }, 30000);
+    setTimeout(function(){ window.location = 'logout'; }, 60000);
     startCount();
-	var c = 30;
+	var c = 60;
 	var t;
 	var timer_is_on = 0;
 

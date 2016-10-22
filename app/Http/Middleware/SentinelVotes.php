@@ -16,8 +16,11 @@ class SentinelVotes
      */
     public function handle($request, Closure $next)
     {
-        if (Sentinel::check()) { // user is authenticated
-            return redirect('votes')->with('error', 'Cant Access the page');
+        if (!Sentinel::check()) { // user is authenticated
+            return redirect('/')->with('error', 'Cant Access the page');
+        }
+        if (Sentinel::inRole('admin') || Sentinel::inRole('teacher')) {
+            return redirect('dashboard')->with('error', 'Cant Access the page');
         }
         return $next($request);
     }

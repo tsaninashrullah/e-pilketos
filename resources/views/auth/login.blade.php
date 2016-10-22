@@ -1,3 +1,6 @@
+<?php
+\Debugbar::disable();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

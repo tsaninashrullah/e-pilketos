@@ -148,13 +148,14 @@ class UsersController extends Controller
             ->with('users', $users);
     }
 
-    public function home (){
-    $candidates = Candidates::all();
-    $candidate = Votes::all();
+    public function home ()
+    {
+        $candidates = Candidates::all();
+        $candidate = Votes::all();
 
-    return view('welcome')
-    ->with('list_candidates',$candidates)
-    ->with('votes',$candidate);
+        return view('welcome')
+        ->with('list_candidates',$candidates)
+        ->with('votes',$candidate);
     }
 
      public function type()
@@ -189,4 +190,32 @@ class UsersController extends Controller
 
     }
 
+    public function getdata()
+    {
+        return Datatables::of(Users::all())
+        ->addColumn('activation', function($user){
+            $activation = Users::find($user->id)->activation;
+            if ($activation['completed']== 1) {
+                echo "<a href='users/active/" . $user->id;
+            }
+        })
+        ->editColumn('month', '
+            {!! $month !!}
+            ')
+        ->editColumn('description', '
+            {!! $description !!}
+            ')
+        ->editColumn('status', function($status){
+                if ($status->status == 0) {
+                    return "Tidak Aktif";
+                }else{
+                    return "Aktif";
+                }
+            })
+        ->addColumn('action','
+            <a href="javascript:void(0)" onclick="EditKvoucherNotification({{$id}})" data-toggle="tooltip" title="Ubah"><button class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+            <a href="javascript:void(0)" onclick="confirm_delete_kvoucher_notification({{$id}})" data-toggle="tooltip" title="Hapus"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+            ')
+        ->make(true);
+    }
 }

@@ -12,7 +12,6 @@
 */
 
 
-
 Route::group(['middleware' => 'back'], function () {
 	Route::get('/','UsersController@home')->name('home');
 	Route::get('quick_count', 'UsersController@quick_count');
@@ -20,12 +19,10 @@ Route::group(['middleware' => 'back'], function () {
 
 
 });
+Route::get('quick','UsersController@home')->name('home');
 
 Route::get('logout', 'AuthenticateController@logout');
 
-Route::group(['middleware' => 'admin'], function () {
-
-});
 Route::group(['middleware' => 'teacher'], function () {
 	Route::get('dashboard','VotingController@indexDashboard');
 });

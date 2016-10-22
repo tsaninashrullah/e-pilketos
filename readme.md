@@ -39,6 +39,12 @@ Pada Aplikasi ini tersedia beberapa fitur diantaranya
 <li>Semua command dijalankan di terminal(linux) atau di git bash(windows/macos)</li>
 <li>Jika anda akan mengclone projek ini pastikan anda telah mendapat permission dari user yang membuat repository ini/bisa langsung contact ke tsani.nashrullah@gmail.com</li>
 
+##Thanks to
+[Laravel](http://laravel.com/docs)
+[Git](https://git-scm.com/)
+[PHP](https://php.net)
+[Composer](https://getcomposer.org/)
+
 Best Regards,
 
 

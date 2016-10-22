@@ -100,9 +100,19 @@
      </font>
    </h3>
    </div>
-   <div class="col-xs-4">
-   </div>
-     <div class="col-lg-4">
+   <div class="container-fluid">
+   <!-- notice voted -->
+           @if (session('error'))
+           <div class="row" id="alert">
+            <div class="col-xs-4 col-xs-offset-4">
+              <div class="alert alert-danger">
+                <center><span>{{ session('error') }}</span></center> 
+              </div>
+            </div>
+          </div>
+          @endif
+      <!-- end notice -->
+     <div class="col-lg-4 col-lg-offset-4">
         <br>
         <div class="card card-user">
         <div class="container-fluid">
@@ -114,7 +124,6 @@
               <hr>
                 <div class="form-group">
                 {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN', 'maxlength'=>'10')) }}
-                {{ $errors->first('nisn') }}
                 </div>
               </div>
             </div>
@@ -132,6 +141,7 @@
           </div>
         </div>
         </div>
+      </div>
   </div>
   </div>
   </body>

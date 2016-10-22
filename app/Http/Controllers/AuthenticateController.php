@@ -14,7 +14,7 @@ use App\Http\Requests;
 
 use App\Models\Users;
 
-use Activations, Session;
+use Activations, Session, Validator, Redirect;
 
 class AuthenticateController extends Controller
 {
@@ -31,23 +31,36 @@ class AuthenticateController extends Controller
             'login'    => $request->nisn,
             'password' => $request->password,
         ];
-        Sentinel::check();
-        if ($user = Sentinel::authenticate($credentials))
-        {
-            if(Sentinel::getUser()->status == 1 ) {
-                Sentinel::logout();
-                return redirect('/');
-            }elseif(Sentinel::inRole('admin') || Sentinel::inRole('teacher')){
-                return redirect('dashboard');
-            }else{
-                return redirect('votes');
+        $validation = Validator::make($credentials, array(
+          'password' => 'required',
+          'login' => 'required',
+        ));
+        
+        if($validation->fails()) {
+            return Redirect::back()
+            ->withInput()
+            ->withErrors($validation->messages())
+            ->with('error', 'Pastikan NISN dan password Anda terisi');
+        } else {
+            Sentinel::check();
+            if ($user = Sentinel::authenticate($credentials))
+            {
+                if(Sentinel::getUser()->status == 1 ) {
+                    $users = Users::find(Sentinel::getUser()->id);
+                    Sentinel::logout();
+                    return redirect('login')->with('error', 'Anda telah melaksanakan pemilihan pada tanggal ' . $users->last_login);
+                }elseif(Sentinel::inRole('admin') || Sentinel::inRole('teacher')){
+                    return redirect('dashboard');
+                }else{
+                    return redirect('votes');
+                }
             }
-        }
-        else
-        {
-            Session::flash('notice', 'Failed to login');
-            return redirect('login');
-            // Authentication failed.
+            else
+            {
+                Session::flash('notice', 'Failed to login');
+                return redirect('login')->with('error', 'Username Atau Password Salah');
+                // Authentication failed.
+            }
         }
     }
 

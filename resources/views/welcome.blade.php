@@ -11,7 +11,7 @@ Use App\Models\Users;
       <div class="col-xs-12">
        <!-- notice voted -->
            @if (session('status'))
-           <div class="row">
+           <div class="row" id="alert">
             <div class="col-xs-5">
               <div class="alert alert-success">
                 <center><span>{{ session('status') }}</span></center> 
@@ -92,3 +92,11 @@ Use App\Models\Users;
       </div>
     </div> -->
 @stop
+<script type="text/javascript">
+$( document ).ready(function() {
+  document.getElementById('test_').reset();
+  setTimeout(function(){
+      $('#alert').hide();
+    }, 30000);
+});
+</script>

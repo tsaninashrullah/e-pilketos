@@ -16,7 +16,6 @@
 @foreach($list_candidates as $candidates)
 <div class="col-sm-6 col-md-4">
 <div class="thumbnail">
-    {{ Sentinel::getUser() }}
 <br>
  <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
       <div class="caption">
@@ -39,9 +38,9 @@
 @endif
 <script type="text/javascript">
 $( document ).ready(function() {
-    setTimeout(function(){ window.location = 'logout'; }, 3000);
+    setTimeout(function(){ window.location = 'logout'; }, 60000);
     startCount();
-	var c = 3;
+	var c = 60;
 	var t;
 	var timer_is_on = 0;
 

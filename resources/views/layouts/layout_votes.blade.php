@@ -1,4 +1,5 @@
 <?php
+\Debugbar::disable();
 use Cartalyst\Sentinel\Users\UserInterface;
 ?>
 <!DOCTYPE html>

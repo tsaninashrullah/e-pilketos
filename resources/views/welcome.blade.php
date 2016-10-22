@@ -1,5 +1,6 @@
 <?php
 Use App\Models\Candidates;
+Use App\Models\Users;
 ?>
 @extends('layouts.layout_login')
 @section('content')
@@ -54,6 +55,19 @@ Use App\Models\Candidates;
     </div>
     @endforeach
     @endif
+    <?php
+    $total_suara = 0;
+    foreach ($list_candidates as $key => $votescandidates) {
+      $total_suara = $total_suara + count($votescandidates->votes);
+    }
+    $tes = Users::where('status', '!=', '2')->get();
+    ?>
+    <p>
+    Jumlah Pemilih sebesar :
+    {{ count($total_suara) }}
+     dari 
+    {{ count($tes) }}
+    </p>
     </div>
     <div class="content_body_three">
     <div class="col-xs-5">

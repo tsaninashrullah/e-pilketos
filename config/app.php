@@ -161,6 +161,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
     ],
 
     /*

@@ -19,9 +19,6 @@ use App\Models\Users;
             <br>
             <br>
             <center><h4><h3>Data siswa tidak ditemukan</h3><br /> Silahkan {{ link_to('users/create', 'Tambah', array('class' => 'btn btn-raised btn-primary')) }} data siswa, atau <button type="button" class="btn btn-info" id="myBtn">Import</button> data siswa terlebih dahulu
-         {{ Form::open(array('route' => array('users.type'), 'method' => 'post')) }}
-          {{ Form::submit('Aktifkan Semua',array('class' => 'btn btn-primary pull-right', "onclick" => "return confirm('Anda akan aktifkan semua user?')")) }}
-          {{  Form::close() }}
             </h4></center>
             </div>
         </div>
@@ -42,6 +39,7 @@ use App\Models\Users;
               {{ Form::submit('Import', array('class' => 'btn btn-info')) }}
               </div>
             </div>
+        </div>
         <!-- END MODAL -->
         @else
           <div class="col-lg-6">

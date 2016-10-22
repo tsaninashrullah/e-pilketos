@@ -58,11 +58,11 @@ $list = Candidates::getVotes();
 </center>
 </div>
 </div>
-<script type="text/javascript">
+<script>
   $( document ).ready(function() {
     myFunction();
 
-    console.log(getUpdates);
+    console.log(getUpdates());
   var myVar;
 
   function myFunction() {
@@ -74,5 +74,18 @@ $list = Candidates::getVotes();
   }
 
   });
+  function handleButtonClick() {
+    $.ajax({
+        url:     "/path/to/server/resource",
+        type:    "GET",
+        data:    {articleId: 27},
+        success: function(data) {
+            /* ...use the data to fill in some HTML elements... */
+        },
+        error:   function() {
+          console.log(error);
+        }
+    });
+  }
 </script>
 @endsection

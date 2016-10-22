@@ -33,7 +33,7 @@ Use App\Models\Users;
     </div>
 
 </div>
-<div class="row" style=" width:auto;">
+<!-- <div class="row" style=" width:auto;">
   <div class="content_body_candidates">
     @if(count($list_candidates) == 0)
     <br><br><br><br><br><h4 align="center">Maaf data kandidat OSIS tidak ditemukan, mohon masukan data kandidat terlebih dahulu</h4>
@@ -90,5 +90,5 @@ Use App\Models\Users;
       <font color="white"> Tsani, Ari &copy; 2016</font>
       </center>
       </div>
-    </div>
+    </div> -->
 @stop

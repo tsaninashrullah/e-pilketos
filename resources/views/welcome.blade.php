@@ -73,7 +73,9 @@ Use App\Models\Users;
     </div>
     <div class="content_body_three">
       <div class="col-xs-5">
-      <font color="white">&copy; Tsani & Ari</font>
+      <center>
+      <font color="white"> Tsani, Ari &copy; 2016</font>
+      </center>
       </div>
     </div>
 @stop

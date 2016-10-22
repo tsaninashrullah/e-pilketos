@@ -26,4 +26,9 @@ class Candidates extends Model
     return $this->belongsTo('App\Models\User', 'users_id');
     }
 
+    public static function getVotes(){
+        $votes = Candidates::all();
+        return $votes;
+    }
+
 }

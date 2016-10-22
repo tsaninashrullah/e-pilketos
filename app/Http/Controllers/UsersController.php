@@ -71,9 +71,13 @@ class UsersController extends Controller
         if ($request->type == "1") {
             $role = Sentinel::findRoleByName('admin');
             $role->users()->attach($use);
+            $use->status = "2";
+            $use->update();
         }elseif ($request->type == "2") {
             $role = Sentinel::findRoleByName('teacher');
             $role->users()->attach($use);
+            $use->status = "2";
+            $use->update();
         }else{
             $role = Sentinel::findRoleByName('user');
             $role->users()->attach($use);
@@ -147,6 +151,27 @@ class UsersController extends Controller
             ->with('users', $users);
     }
 
+    public function active($id)
+    {
+        $users = Users::all();
+        $user = Sentinel::findById($id);
+        $activation = Activation::create($user);
+        $use = Users::find($id)->activation;
+        $use['completed'] = '1';
+        $use->save();
+        return redirect('users')
+            ->with('users', $users);
+    }
+
+    public function deactive($id)
+    {
+        $users = Users::all();
+        $user = Sentinel::findById($id);
+        $activation = Activation::remove($user);
+        return redirect('users')
+            ->with('users', $users);
+    }
+
     public function home ()
     {
         $candidates = Candidates::all();
@@ -155,19 +180,6 @@ class UsersController extends Controller
         return view('welcome')
         ->with('list_candidates',$candidates)
         ->with('votes',$candidate);
-    }
-
-     public function type()
-    {
-        ini_set('max_execution_time', 300);
-        $users = Users::all();
-        foreach ($users as $key) {
-            $user = Users::find($key->id);
-            $user->type_id = 3;
-            $user->save();
-        }
-        return redirect('users')
-            ->with('users', $users);
     }
 
     public function getdata()

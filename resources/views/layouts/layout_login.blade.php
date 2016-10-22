@@ -74,7 +74,7 @@ use Cartalyst\Sentinel\Users\UserInterface;
               padding-right: 30px;
               padding-left: 30px;
               background-color: #ecf0f1;
-              height: 90%;
+              height: 94%;
               width: 100%;
               /*background-color: #999;*/
             }

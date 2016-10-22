@@ -93,16 +93,17 @@ class ExcelsController extends Controller
         Excel::load($file,function($reader){
 		    foreach($reader->toObject() as $result) {
 		        // Your model namespace here
-		        $model = new Users;
-		        $model->name = $result->name;
-		        $model->nisn = $result->nisn;
-		        $model->address = $result->address;
-		        $model->gender = $result->gender;
-		        $model->born = $result->born;
-		        $model->graduate = $result->graduate;
-		        $model->password = $result->password;
-		        $model->status = $result->status;
-		        $model->save();
+		        $credentials = [
+			        'name' => $result->name,
+			        'nisn' => $result->nisn,
+			        'address' => $result->address,
+			        'gender' => $result->gender,
+			        'born' => $result->born,
+			        'graduate' => $result->graduate,
+			        'password' => $result->password,
+			        'status' => $result->status,
+		        ];
+		        Sentinel::registerAndActivate($credentials);
 		    }
 	    });
         $users = Users::all();

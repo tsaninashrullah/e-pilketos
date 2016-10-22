@@ -9,6 +9,7 @@ Use App\Http\Requests;
 Use App\Models\Candidates;
 Use App\Models\Votes;
 Use App\Models\Users;
+Use Session;
 
 Use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 

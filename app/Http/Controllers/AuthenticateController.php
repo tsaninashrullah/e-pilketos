@@ -54,6 +54,6 @@ class AuthenticateController extends Controller
     public function logout()
     {
         Sentinel::logout();
-        return redirect('/');
+        return redirect('/')->with('status', 'Terimakasih telah berpartisipasi dalam pemilihan ketua OSIS |^_^|');
     }
 }

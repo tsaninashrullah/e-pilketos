@@ -6,7 +6,7 @@
         </div>
         </center>
         <ul class="nav">
-            <li class="active">
+            <li>
                 <a href="/">
                     <i class="material-icons">school</i>
                     <p>Halaman Utama </p>

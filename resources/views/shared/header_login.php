@@ -11,8 +11,18 @@
         <div class="collapse navbar-collapse">
         <!-- Menu Navbar -->
         <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="/">
+                        Home
+                  </a>
+            </li>
+            <li>
+                  <a href="../quick_count">
+                        Quick Count
+                  </a>
+            </li>
              <li>
-                  <a href="login">
+                  <a href="../login">
                         Login
                   </a>
             </li>

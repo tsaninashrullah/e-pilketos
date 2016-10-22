@@ -13,6 +13,7 @@
  </h3>
 <br>
 <br>
+<div class="col-xs-12">
 @foreach($list_candidates as $candidates)
 <div class="col-sm-6 col-md-4">
 <div class="thumbnail">
@@ -28,13 +29,16 @@
       {{ Form::submit('Vote',array('class' => 'btn btn-primary btn-xs')) }}
     {{  Form::close() }}
     </p>  
-    <input type="text" id="txt">
   </center>	
   </div>
 </div>
 </div>
 </div>
 @endforeach
+</div>
+<div class="col-xs-12">
+    <span id="txt"></span>
+</div>
 @endif
 <script type="text/javascript">
 $( document ).ready(function() {

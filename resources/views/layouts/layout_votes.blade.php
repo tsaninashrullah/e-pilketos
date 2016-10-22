@@ -63,6 +63,15 @@ use Cartalyst\Sentinel\Users\UserInterface;
               width: calc(80%);
               min-height: calc(80%);
             }
+            @media only screen and (max-width: 1024px) {
+              [class*="col-"] {
+                  width: 100%;
+              }
+              [class*="thumbnail-"] {
+                  width: auto;
+                  height: auto;
+              }
+            }
             /* End CSS */
         </style>
 

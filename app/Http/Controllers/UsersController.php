@@ -95,6 +95,7 @@ class UsersController extends Controller
         return view('users.show')->with('list_users',$users);
     }
 
+
     /**
      * Return view to form edit user
      */
@@ -180,6 +181,26 @@ class UsersController extends Controller
         return view('welcome')
         ->with('list_candidates',$candidates)
         ->with('votes',$candidate);
+    }
+
+    public function quick_count()
+    {
+        $candidates = Candidates::all();
+        $candidate = Votes::all();
+
+        return view('quick_count')
+        ->with('list_candidates',$candidates)
+        ->with('votes',$candidate);
+    }
+
+    public function show_candidate($id)
+    {
+        $candidate = Candidates::find($id);
+        $vote = Votes::all();
+        return view('candidate.show')
+        ->with('candidate', $candidate)
+        ->with('votes',$vote);
+
     }
 
     public function getdata()

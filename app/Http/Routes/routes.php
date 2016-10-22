@@ -14,6 +14,10 @@
 
 Route::group(['middleware' => 'back'], function () {
 	Route::get('/','UsersController@home')->name('home');
+	Route::get('quick_count', 'UsersController@quick_count');
+	Route::get('show_candidate/{id}', 'UsersController@show_candidate');
+
+
 });
 Route::get('quick','UsersController@home')->name('home');
 

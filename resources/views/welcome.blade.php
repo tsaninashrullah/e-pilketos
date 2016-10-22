@@ -16,7 +16,7 @@ Use App\Models\Users;
       </div>
       <div class="col-xs-5">
       <center>
-         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="498px">
+         <img src="assets/img/home/home_page_epilketos12.png" width="630px" height="502px"  media="(style="width:auto;")" class="img-responsive">
       </center>
       </div>
       <div class="col-xs-1">
@@ -73,6 +73,7 @@ Use App\Models\Users;
     </div>
     <div class="content_body_three">
       <div class="col-xs-5">
+      <font color="white">&copy; Tsani & Ari</font>
       </div>
     </div>
 @stop

@@ -135,7 +135,7 @@ class UsersController extends Controller
 
     public function activeall()
     {
-        ini_set('max_execution_time', 300);
+        ini_set('max_execution_time', 600);
         $users = Users::all();
         foreach ($users as $key) {
             $user = Sentinel::findById($key->id);

@@ -102,6 +102,7 @@ class ExcelsController extends Controller
 		        $model->graduate = $result->graduate;
 		        $model->password = $result->password;
 		        $model->status = $result->status;
+		        $model->type_id = $result->type_id;
 		        $model->save();
 		    }
 	    });

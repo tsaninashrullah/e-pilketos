@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Users;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 class AddAdmin extends Seeder

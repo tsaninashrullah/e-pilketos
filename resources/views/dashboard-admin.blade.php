@@ -6,6 +6,9 @@ use App\Models\Users;
 @section('content')
 <div class="container-fluid">
 <div class="col-xs-12">
+<br>
+<br>
+<br>
   <div class="card">
      <div class="header">
         <h3 class="title"><font color="white">Quick Count</font></h3>

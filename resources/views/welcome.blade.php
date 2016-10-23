@@ -20,6 +20,17 @@ Use App\Models\Users;
           </div>
           @endif
       <!-- end notice -->
+      <!-- error voted -->
+           @if (session('error'))
+           <div class="row" id="alert">
+            <div class="col-xs-5">
+              <div class="alert alert-danger">
+                <center><span>{{ session('error') }}</span></center> 
+              </div>
+            </div>
+          </div>
+          @endif
+      <!-- end notice -->
       </div>
       <div class="col-xs-5">
       <h2>e-<strong>PILKETOS</strong></h2>
@@ -97,6 +108,6 @@ $( document ).ready(function() {
   document.getElementById('test_').reset();
   setTimeout(function(){
       $('#alert').hide();
-    }, 30000);
+    }, 3000);
 });
 </script>

@@ -132,7 +132,7 @@ class UsersController extends Controller
         $users->delete();
         $user = Users::all();
         Session::flash('message',$users->name.' your photo success to delete');
-        return redirect('users')->with('users', $user);
+        return back()->with('users', $user);
     }
 
     // ------------------Aktivasi Tjoy-----------------------

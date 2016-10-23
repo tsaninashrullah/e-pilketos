@@ -183,10 +183,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <!--  JS Custom Original template    -->
     <script src="<?php echo asset('assets/library/custom/js/custom.js')?>"></script>
     <div class="wrapper">
-<<<<<<< HEAD
-=======
-    <!-- Navbar -->
->>>>>>> b3d2d92b5e92d1f9c3100b67b991b1ccb8076004
     <div class="main-panel" id="bg">
       <!-- Navbar -->
       @include('shared.header_login')
@@ -197,14 +193,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
     </div>
     </div>
     <script type="text/javascript">
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
     </script>
     </body>
 </html>

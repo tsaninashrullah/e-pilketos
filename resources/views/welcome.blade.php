@@ -11,10 +11,21 @@ Use App\Models\Users;
       <div class="col-xs-12">
        <!-- notice voted -->
            @if (session('status'))
-           <div class="row">
+           <div class="row" id="alert">
             <div class="col-xs-5">
               <div class="alert alert-success">
                 <center><span>{{ session('status') }}</span></center> 
+              </div>
+            </div>
+          </div>
+          @endif
+      <!-- end notice -->
+      <!-- error voted -->
+           @if (session('error'))
+           <div class="row" id="alert">
+            <div class="col-xs-5">
+              <div class="alert alert-danger">
+                <center><span>{{ session('error') }}</span></center> 
               </div>
             </div>
           </div>
@@ -93,3 +104,4 @@ Use App\Models\Users;
   </div>
 </div>
 @stop
+

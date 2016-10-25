@@ -102,8 +102,6 @@ use App\Models\Users;
             <tr>
                 <th>Aktivasi</th>
                 <th>Nama</th>
-                <th>Alamat</th>
-                <th>Tanggal Lahir</th>
                 <th>Jenis Kelamin</th>
                 <th>Status</th>
                 <th>Lulusan</th>
@@ -126,8 +124,6 @@ use App\Models\Users;
                 </td>
               @endif
                 <td> {{ $user->name }} </td>
-                <td> {{ $user->address }} </td>
-                <td> {{ $user->born }} </td>
                 <td> {{ $user->gender }} </td>
                 <td> 
                 <?php
@@ -140,17 +136,19 @@ use App\Models\Users;
                 </td>
                 <td> {{ $user->graduate }} </td>
                 <td>
-                <a class="btn btn-success btn-success btn-xs" href="users/{{$user->id}}">
-                  <i class="material-icons">info</i>
-                </a>
-                <a class="btn btn-success btn-success btn-xs" href="  users/{{$user->id}}/edit">
-                  <i class="material-icons">create</i>
-                </a>
-                 <i class="material-icons">
-                    {{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete')) }}
-                    {!! Form::submit('delete', array('class' => 'btn btn-success btn-success btn-sm')) !!}
-                    {{  Form::close() }}
-                </i>
+                <div class="btn-group">
+                  <a class="btn btn-success btn-success btn-xs" href="users/{{$user->id}}">
+                    <i class="material-icons">info</i>
+                  </a>
+                  <a class="btn btn-success btn-success btn-xs" href="  users/{{$user->id}}/edit">
+                    <i class="material-icons">create</i>
+                  </a>
+                   <i class="material-icons">
+                      {{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete')) }}
+                      {!! Form::submit('delete', array('class' => 'btn btn-success btn-success btn-sm')) !!}
+                      {{  Form::close() }}
+                  </i>
+                </div>
                 </td>
             </tr>
             @endforeach

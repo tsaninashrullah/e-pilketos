@@ -32,6 +32,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="#">{{ Sentinel::getUser()->name }}</a></li>
+                  </ul>
                     <li class="divider"></li>
                     <li><a href="../logout">Logout</a></li>
                   </ul>

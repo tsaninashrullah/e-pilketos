@@ -17,8 +17,8 @@ class SentinelAuth
      */
     public function handle($request, Closure $next)
     {
-        if (!Sentinel::check()) { // user is not authenticated
-            return redirect('/')->with('error', 'You must be logged to view the page');
+        if (Sentinel::check()) { // user is not authenticated
+            return back()->with('error', 'You must be logged to view the page');
         }
         return $next($request);
     }

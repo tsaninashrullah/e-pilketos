@@ -30,7 +30,7 @@ $list = Candidates::getVotes();
         $voting = $candidates->votes;
         if (count($voting) > 0) {
           $total = (count($voting)/count($votes))*100;
-          echo $total.'%';
+          echo number_format((float)$total, 2, '.', '') . '%';
         }else{
           echo "Belum Ada Pemilihan";
         }

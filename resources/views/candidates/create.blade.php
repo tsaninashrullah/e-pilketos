@@ -37,16 +37,17 @@
                     </div>
                 </div>
             </div>
+            <textarea name="textarea" id="textarea" class="textarea"></textarea>
             <div class="col-lg-12">
                 <div class="col-lg-5">
                 	<div class="form-group">
-        			{{ Form::textarea('visi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'VISI')) }}
+        			{{ Form::textarea('visi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'VISI', 'id' => 'textarea')) }}
         			{{ $errors->first('visi') }}
         			</div>
                 </div>
             <div class="col-lg-5">
             	<div class="form-group">
-    			{{ Form::textarea('misi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'MISI')) }}
+    			{{ Form::textarea('misi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'MISI', 'id' => 'textarea')) }}
     			{{ $errors->first('misi') }}
     			</div>
             </div>
@@ -73,13 +74,18 @@
     </div>
 </div>
 <!-- JS Custom -->
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+
 <script type="text/javascript">
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'yy/mm/dd'
+    $(function() {
+        $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'yy/mm/dd'
+        });
     });
-  } );
+    $('textarea').ckeditor();
+    $('.textarea').ckeditor();
 </script>
 @stop

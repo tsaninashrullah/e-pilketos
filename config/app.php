@@ -162,6 +162,7 @@ return [
         Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*

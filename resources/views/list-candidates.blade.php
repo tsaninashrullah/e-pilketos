@@ -1,12 +1,4 @@
-@extends('layouts.layout_votes')
-@section('content')
-<style type="text/css">
-  .content{
-    margin-top:0.5cm;
-  }
-</style>
-  <div id="list-candidates" style="margin-top:1%;">
-    @if(count($list_candidates) == 0)
+@if(count($list_candidates) == 0)
     <br><br><br><br><br><h4 align="center"><font color="white">Maaf data kandidat OSIS tidak ditemukan, mohon masukan data kandidat terlebih dahulu</font></h4>
     @else
     <h3><center>
@@ -63,30 +55,3 @@
           </center>
         </div>
       </div>
-  </div>
-<script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-$( document ).ready(function() {
-  getQuery();
-})
-  function getQuery() {
-    setInterval(getUpdates, 3000);
-  }
-
-  function getUpdates() {
-    $.ajax({
-      success : function(data) {
-        $('#list-candidates').html(data['view']);
-        console.log(data);
-      },
-      error : function(xhr, status) {
-        console.log(xhr.error + " ERROR STATUS : " + status);
-      },
-    });
-  }
-</script>
-@endsection

@@ -37,13 +37,13 @@ class CandidatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CandidatesRequest $request)
+    public function store(Request $request)
     {
-        $candidate = new candidates();
+        $candidate = new Candidates();
                 
         $candidate->name = $request->name;
         $candidate->address = $request->address;
-        $candidate->born = $request->born;
+        $candidate->born = $request->born_date;
         $candidate->email = $request->email;
         $candidate->visi = $request->visi;
         $candidate->misi = $request->misi;
@@ -52,13 +52,13 @@ class CandidatesController extends Controller
 
         $file = $request->file('image');
         $image = Image::make($file);
-        $image_location = public_path().'/uploads/images/' . $candidate->id . '/';
+        $image_location = public_path() . '/uploads/images/' . $candidate->id . '/' . $candidate->id;
         $direction  = File::makeDirectory($image_location,0777, true, true);
-        $image->save($image_location . $candidate->id . '.jpg');
+        $image->save($image_location . '.jpg');
         
         $image->resize(200,200);
         $image->save($image_location . 'thumb'. $candidate->id . '.jpg');
-        $candidate->image = $candidate->id . '.jpg';
+        $candidate->image = '/uploads/images/' . $candidate->id . '/' . $candidate->id . '.jpg';
         $candidate->save();
         Session::flash('notice', 'Success add candidate');
         $candidates = candidates::all();

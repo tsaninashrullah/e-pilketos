@@ -41,7 +41,7 @@
           <div class="col-sm-6 col-md-3">
           <div class="form-group">
               <div class="thumbnail">
-                <img src="{{ asset('uploads/images/' . $candidate->id . '/' . $candidate->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;">
+                <img src="{{ $candidate->image }}" style="max-height:200px;max-width:200px;margin-top:10px;">
                 <div class="caption">
                     <center><h3>{{ $candidate->name }}</h3>        
                     {{ $candidate->born }}

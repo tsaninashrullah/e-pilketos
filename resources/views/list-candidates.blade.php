@@ -15,8 +15,8 @@
     <div class="col-lg-12">&nbsp;</div>
       @foreach($list_candidates as $candidates)
         <center>
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
+          <div class="col-sm-6 col-md-3" style="background-color:white;">
+            <div class="">
               <center>
               <h3>{{ $candidates->name }}</h3>
               </center>

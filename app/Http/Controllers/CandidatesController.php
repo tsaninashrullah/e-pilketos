@@ -37,13 +37,13 @@ class CandidatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CandidatesRequest $request)
+    public function store(Request $request)
     {
-        $candidate = new candidates();
+        $candidate = new Candidates();
                 
         $candidate->name = $request->name;
         $candidate->address = $request->address;
-        $candidate->born = $request->born;
+        $candidate->born = $request->born_date;
         $candidate->email = $request->email;
         $candidate->visi = $request->visi;
         $candidate->misi = $request->misi;

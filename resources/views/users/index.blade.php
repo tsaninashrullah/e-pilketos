@@ -39,32 +39,36 @@ use App\Models\Users;
               {{ Form::submit('Import', array('class' => 'btn btn-info')) }}
               </div>
             </div>
+        </div>
         <!-- END MODAL -->
         @else
-        <div class="col-lg-6">
-        <p>Data siswa tersedia : {{ count($user_s) }}</p>
-        </div>
-        <div class="col-lg-6">
-         {{ Form::open(array('route' => array('users.activeall'), 'method' => 'post')) }}
-          {{ Form::submit('Aktifkan Semua',array('class' => 'btn btn-primary pull-right', "onclick" => "return confirm('Anda akan aktifkan semua user?')")) }}
-          {{  Form::close() }}
-        <div class="form-group">
-             <div class="btn-group">  
-              {{ link_to('users/create', 'Create', array('class' => 'btn btn-raised btn-primary')) }}
-              <a href="javascript:void(0)" class="btn btn-success">Excel</a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)" id="myBtn">Import</a></li>
-                <li class="divider"></li>
-                <li><a href="export_users/all">Export Semua</a></li>
-                <li class="divider"></li>
-                <li><a href="export_users/2019">Export Kelas 10</a></li>
-                <li><a href="export_users/2018">Export Kelas 11</a></li>
-                <li><a href="export_users/2017">Export Kelas 12</a></li>
-              </ul>
+          <div class="col-lg-6">
+          <p>Data siswa tersedia : {{ count($user_s) }}</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group pull-right">
+              <div class="btn-group">  
+                {{ link_to('users/create', 'Create', array('class' => 'btn btn-raised btn-primary')) }}
+                <a href="javascript:void(0)" class="btn btn-success">Excel</a>
+                <a href="bootstrap-elements.html" data-target="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0)" id="myBtn">Import</a></li>
+                  <li class="divider"></li>
+                  <li><a href="export_users/all">Export Semua</a></li>
+                  <li class="divider"></li>
+                  <li><a href="export_users/2019">Export Kelas 10</a></li>
+                  <li><a href="export_users/2018">Export Kelas 11</a></li>
+                  <li><a href="export_users/2017">Export Kelas 12</a></li>
+                </ul>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
+            <div class="col-lg-6 pull-right">
+             {{ Form::open(array('route' => array('users.activeall'), 'method' => 'post')) }}
+              {{ Form::submit('Aktifkan Semua',array('class' => 'btn btn-primary pull-right', "onclick" => "return confirm('Anda akan aktifkan semua user?')")) }}
+              {{  Form::close() }}
+            </div>
+        
         <!-- MODAL -->
         <div id="myModal" class="modal">
             <!-- Modal content-->
@@ -89,10 +93,10 @@ use App\Models\Users;
               </div>
               {{ Form::close() }}
             </div>
-
         </div>
         <!-- END MODAL -->
-        </div>
+
+        <div class="col-lg-12">&nbsp;</div>
         <div class="content full-width-table table-responsive">
         <table class="table table-hover table-striped">
             <tr>

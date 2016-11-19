@@ -7,9 +7,9 @@
         </center>
         <ul class="nav">
             <li class="active">
-                <a href="/">
+                <a href="dashboard">
                     <i class="material-icons">school</i>
-                    <p>Halaman Utama </p>
+                    <p>Dashboard </p>
                 </a>
             </li>
             <li>

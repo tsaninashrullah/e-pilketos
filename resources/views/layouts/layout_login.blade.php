@@ -107,29 +107,29 @@ use Cartalyst\Sentinel\Users\UserInterface;
             .content_body_one {
               color: #FFFFFF;
               background-color: transparent;
-              padding-top: 40px;
-              padding-right: 30px;
+              padding-top: 80px;
               padding-left: 30px;
+              padding-rigth: 30px;
               height: 80%;
-              width: 100%;
+              width: auto;
               /*background-color: #999;*/
             }
 
             .content_body_candidates {
-              padding-top: 40px;
-              padding-bottom: 40px;
+              padding-top: 95px;
+              padding-bottom: 70px;
               padding-right: 30px;
               padding-left: 30px;
               background-color: #ecf0f1;
               height: 90%;
-              width: 100%;
+              width: auto;
               /*background-color: #999;*/
             }
 
             .content_body_three {
               background-color: #7f8c8d;
               height: 8%;
-              width: 100%;
+              width: auto;
               /*background-color: #999;*/
             }
             .thumbnail  {
@@ -141,66 +141,20 @@ use Cartalyst\Sentinel\Users\UserInterface;
               background-color: #ecf0f1;
             }
             
-            .row {
-              width: 30%;
+
+
+            @media only screen and (max-width: 768px) {
+                /* For mobile phones: */
+                [class*="col-"] {
+                    width: 100%;
+                }
             }
 
-            .row_one {
-              width: 100%;
-            }
-
-            /* For mobile phones: */
-            @media only screen and (max-width: 1024px) {
-              [class*="col-"] {
-                  width: 100%;
-              }
-              [class*="thumbnail-"] {
-                  width: auto;
-                  height: auto;
-              }
-              [class*="img-circle-"] {
-                  width: auto;
-                  height: auto;
-              }
-              [class*="content_body_one"] {
-                  width: auto;
-                  height: 200%;
-              }
-              [class*="content_body_candidates"] {
-                  width: auto;
-                  height: 330%;
-              }
-              [class*="content_body_three"] {
-                  width: auto;
-                  height: 10%;
-              }
-              h2{
-                font-size: 20px;
-              }
-              h3{
-                font-size: 20px;          
-              }
-              h4{
-                font-size: 15px;                
-              }
-            }
-                /* For desktop: */
-            /*@media only screen and (min-width: 1024px) {
-
-                .col-1 {width: 8.33%;}
-                .col-2 {width: 16.66%;}
-                .col-3 {width: 25%;}
-                .col-4 {width: 33.33%;}
-                .col-5 {width: 41.66%;}
-                .col-6 {width: 50%;}
-                .col-7 {width: 58.33%;}
-                .col-8 {width: 66.66%;}
-                .col-9 {width: 75%;}
-                .col-10 {width: 83.33%;}
-                .col-11 {width: 91.66%;}
-                .col-12 {width: 100%;}
+            /*@media only screen and (orientation: landscape) {
+                [class*="col-"] {
+                    width: 100%;
+                }
             }*/
-
             
             /* End CSS */
         </style>
@@ -233,13 +187,14 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <!--  JS Custom Original template    -->
     <script src="<?php echo asset('assets/library/custom/js/custom.js')?>"></script>
     <div class="wrapper">
-    <!-- Sidebar -->
     <!-- Navbar -->
     <div class="main-panel" id="bg">
       <!-- Navbar -->
       @include('shared.header_login')
        <!-- Content -->
-        @yield('content')
+       <div class="container" style="width:100%;">
+          @yield('content')
+        </div>
     </div>
     </div>
     </body>

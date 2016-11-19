@@ -1,3 +1,7 @@
+<?php
+use App\Models\Votes;
+$votes = Votes::all();
+?>
 @extends('layouts.layout')
 @section('content')
 <div class="container-fluid">
@@ -16,7 +20,17 @@
                     </div>
                     <div class="col-md-7">
                         <div class="form-group">
-                            <h2>Polling Suara : 0.34%</h2>
+                            <h2>Polling Suara :
+                            <?php
+                            $voting = $candidate->votes;
+                            if (count($voting) > 0) {
+                              $total = (count($voting)/count($votes))*100;
+                              echo $total.'%';
+                            }else{
+                              echo "Belum Ada Pemilihan";
+                            }
+                            ?>
+                            </h2>
                             <small>Lahir : {{ $candidate->born }}</small> 
                             <br>
                             <small> VISI : {{ $candidate->visi }} </small>

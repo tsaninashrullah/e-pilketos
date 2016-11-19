@@ -9,6 +9,7 @@ Use App\Http\Requests;
 Use App\Models\Candidates;
 Use App\Models\Votes;
 Use App\Models\Users;
+Use Session;
 
 Use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
@@ -25,15 +26,14 @@ class VotingController extends Controller
     {
         $candidates = Candidates::all();
         $votes = Votes::all();
-        return view('votes.index')
-        ->with('list_candidates',$candidates)
-        ->with('votes', $votes);
+        return view('votes.index')->with('list_candidates',$candidates)->with('votes', $votes);
     }
 
     public function indexDashboard()
     {
         $candidates = Candidates::all();
-        return view('dashboard-admin')->with('list_candidates',$candidates);
+        $votes = Votes::all();
+        return view('dashboard-admin')->with('list_candidates',$candidates)->with('votes', $votes);
     }
 
     /**

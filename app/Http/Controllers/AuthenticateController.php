@@ -66,7 +66,15 @@ class AuthenticateController extends Controller
 
     public function logout()
     {
+        $status = "Terimakasih telah berpartisipasi dalam pemilihan ketua OSIS |^_^|";
         Sentinel::logout();
-        return redirect('/')->with('status', 'Terimakasih telah berpartisipasi dalam pemilihan ketua OSIS |^_^|');
+        return redirect('/')->with('status', $status);
+    }
+
+    public function expired()
+    {
+        $status = "Waktu Anda habis silahkan kembali login untuk memilih";
+        Sentinel::logout();
+        return redirect('/')->with('error', $status);
     }
 }

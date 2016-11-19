@@ -68,12 +68,12 @@
 </div>
 <!-- JS Custom -->
 <script type="text/javascript">
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'yy/mm/dd'
+    $( function() {
+        $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'yy/mm/dd'
+        });
     });
-  } );
 </script>
 @stop

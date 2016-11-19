@@ -46,7 +46,7 @@
 @endif
 <script type="text/javascript">
 $( document ).ready(function() {
-    setTimeout(function(){ window.location = 'logout'; }, 60000);
+    setTimeout(function(){ window.location = 'expired';}, 60000);
     startCount();
 	var c = 60;
 	var t;

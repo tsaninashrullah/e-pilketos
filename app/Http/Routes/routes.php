@@ -22,6 +22,7 @@ Route::group(['middleware' => 'back'], function () {
 Route::get('quick','UsersController@home')->name('home');
 
 Route::get('logout', 'AuthenticateController@logout');
+Route::get('expired', 'AuthenticateController@expired');
 
 Route::group(['middleware' => 'teacher'], function () {
 	Route::get('dashboard','VotingController@indexDashboard');

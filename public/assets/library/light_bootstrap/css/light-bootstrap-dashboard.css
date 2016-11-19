@@ -2861,7 +2861,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   .navbar .navbar-collapse.collapse,
   .navbar .navbar-collapse.collapse.in,
   .navbar .navbar-collapse.collapsing {
-    display: none !important;
+    
   }
 
   .navbar-nav > li {

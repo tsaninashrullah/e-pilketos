@@ -31,9 +31,8 @@
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
+                    <li><a href="#">{{ Sentinel::getUser()->name }}</a></li>
                   </ul>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">{{ Sentinel::getUser()->name }}</a></li>
                     <li class="divider"></li>
                     <li><a href="../logout">Logout</a></li>
                   </ul>

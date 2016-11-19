@@ -20,6 +20,17 @@ Use App\Models\Users;
           </div>
           @endif
       <!-- end notice -->
+      <!-- error voted -->
+           @if (session('error'))
+           <div class="row" id="alert">
+            <div class="col-xs-5">
+              <div class="alert alert-danger">
+                <center><span>{{ session('error') }}</span></center> 
+              </div>
+            </div>
+          </div>
+          @endif
+      <!-- end notice -->
       </div>
       <div class="col-xs-5">
       <h2>e-<strong>PILKETOS</strong></h2>
@@ -31,9 +42,8 @@ Use App\Models\Users;
          <img src="assets/img/home/home_page_epilketos12.png" class="img-responsive" >
       </div>
     </div>
-
 </div>
-<!-- <div class="row" style=" width:auto;">
+<div class="row" style=" width:auto;">
   <div class="content_body_candidates">
     @if(count($list_candidates) == 0)
     <br><br><br><br><br><h4 align="center">Maaf data kandidat OSIS tidak ditemukan, mohon masukan data kandidat terlebih dahulu</h4>
@@ -57,7 +67,7 @@ Use App\Models\Users;
             $voting = Candidates::find($candidates->id)->votes;
             if (count($voting) > 0) {
               $total = (count($voting)/count($votes))*100;
-              echo $total.'%';
+                echo number_format((float)$total, 2, '.', '') . '%';
             }else{
               echo "Belum Ada Pemilihan";
             }
@@ -66,8 +76,9 @@ Use App\Models\Users;
           </div>
         </div>
       </div>
-      @endforeach
-      <?php
+    </center>
+    @endforeach
+     <?php
       $total_suara = 0;
       foreach ($list_candidates as $key => $votescandidates) {
         $total_suara = $total_suara + count($votescandidates->votes);
@@ -75,28 +86,22 @@ Use App\Models\Users;
       $tes2 = Users::where('status', '=', '1')->get();
       $tes = Users::where('status', '!=', '2')->get();
       ?>
-      <div class="row_one">
-        <div class="col-lg-12">
-          <center>
-            <p><i>Jumlah Pemilih sebesar :{{ count($tes2) }} dari {{ count($tes) }}</i></p>
-          </center>
-        </div>
-      </div>
-      @endif
-    </div>
-    <div class="content_body_three">
-      <div class="col-xs-5">
-      <center>
-      <font color="white"> Tsani, Ari &copy; 2016</font>
-      </center>
-      </div>
-    </div> -->
+    <br>
+    <center>
+    Jumlah siswa yang sudah memilih:
+    {{ count($tes2) }}
+     dari 
+    {{ count($tes) }}
+    </center>
+    @endif
+  </div>
+</div>
+<div class="row" style=" width:auto;">
+  <div class="content_body_three">
+    <br>
+      <center><font color="white"> Tsani, Ari &copy; 2016</font></center>
+    <br>
+  </div>
+</div>
 @stop
-<script type="text/javascript">
-$( document ).ready(function() {
-  document.getElementById('test_').reset();
-  setTimeout(function(){
-      $('#alert').hide();
-    }, 30000);
-});
-</script>
+

@@ -132,7 +132,7 @@ class UsersController extends Controller
         $users->delete();
         $user = Users::all();
         Session::flash('message',$users->name.' your photo success to delete');
-        return redirect('users')->with('users', $user);
+        return back()->with('users', $user);
     }
 
     // ------------------Aktivasi Tjoy-----------------------
@@ -183,14 +183,22 @@ class UsersController extends Controller
         ->with('votes',$candidate);
     }
 
-    public function quick_count()
+    public function quick_count(Request $request)
     {
-        $candidates = Candidates::all();
-        $candidate = Votes::all();
-
-        return view('quick_count')
-        ->with('list_candidates',$candidates)
-        ->with('votes',$candidate);
+        if($request->ajax()) {
+            $data['list_candidates'] = Candidates::all();
+            $data['votes'] = Votes::all();
+            $data['usersVotes'] = Users::where('status', '=', '1')->get();
+            $data['sumUsers'] = Users::where('status', '!=', '2')->get();
+            $view = (String) view('list-candidates', $data)
+                ->render();
+            return response()->json(['view' => $view]);
+        }
+        $data['list_candidates'] = Candidates::all();
+        $data['votes'] = Votes::all();
+        $data['usersVotes'] = Users::where('status', '=', '1')->get();
+        $data['sumUsers'] = Users::where('status', '!=', '2')->get();
+        return view('quick_count', $data);
     }
 
     public function show_candidate($id)

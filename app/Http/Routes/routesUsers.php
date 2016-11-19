@@ -15,6 +15,7 @@ Route::group(['middleware' => 'admin'], function () {
 	Route::post('users/store', 'UsersController@store')->name('user.store');
 	Route::post('users/active/{id}', 'UsersController@active')->name('users.active');
 	Route::post('users/deactive/{id}', 'UsersController@deactive')->name('users.deactive');
+	Route::delete('users/{id}/delete', 'UsersController@destroy')->name('users.deletes');
 });
 	
 Route::group(['middleware' => 'teacher'], function () {

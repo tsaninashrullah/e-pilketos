@@ -43,6 +43,8 @@ use Cartalyst\Sentinel\Users\UserInterface;
           
           /* CSS custom for welcome page */
 
+  
+
              .main-panel {
               background: rgba(203, 203, 210, 0.15);
               position: relative;
@@ -149,12 +151,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
                     width: 100%;
                 }
             }
-
-            /*@media only screen and (orientation: landscape) {
-                [class*="col-"] {
-                    width: 100%;
-                }
-            }*/
             
             /* End CSS */
         </style>
@@ -187,7 +183,6 @@ use Cartalyst\Sentinel\Users\UserInterface;
     <!--  JS Custom Original template    -->
     <script src="<?php echo asset('assets/library/custom/js/custom.js')?>"></script>
     <div class="wrapper">
-    <!-- Navbar -->
     <div class="main-panel" id="bg">
       <!-- Navbar -->
       @include('shared.header_login')
@@ -197,5 +192,7 @@ use Cartalyst\Sentinel\Users\UserInterface;
         </div>
     </div>
     </div>
+    <script type="text/javascript">
+    </script>
     </body>
 </html>

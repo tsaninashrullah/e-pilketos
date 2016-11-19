@@ -52,13 +52,13 @@ class CandidatesController extends Controller
 
         $file = $request->file('image');
         $image = Image::make($file);
-        $image_location = public_path().'/uploads/images/' . $candidate->id . '/';
+        $image_location = public_path() . '/uploads/images/' . $candidate->id . '/' . $candidate->id;
         $direction  = File::makeDirectory($image_location,0777, true, true);
-        $image->save($image_location . $candidate->id . '.jpg');
+        $image->save($image_location . '.jpg');
         
         $image->resize(200,200);
         $image->save($image_location . 'thumb'. $candidate->id . '.jpg');
-        $candidate->image = $candidate->id . '.jpg';
+        $candidate->image = '/uploads/images/' . $candidate->id . '/' . $candidate->id . '.jpg';
         $candidate->save();
         Session::flash('notice', 'Success add candidate');
         $candidates = candidates::all();

@@ -28,10 +28,10 @@ Use App\Models\Candidates;
                     <td>Lahir</td><td> : </td><td> {{ $candidate->born }}</td>
                 </tr>
                 <tr>
-                    <td>VISI</td><td> : </td><td> {{ $candidate->visi }}</td>
+                    <td>VISI</td><td> : </td><td> {!! $candidate->visi !!}</td>
                 </tr>
                 <tr class="success">
-                    <td>MISI</td><td> : </td><td> {{ $candidate->misi }}</td>
+                    <td>MISI</td><td> : </td><td> {!! $candidate->misi !!}</td>
                 </tr>
                 <tr >
                     <td>Alamat</td><td> : </td><td> {{ $candidate->address }}</td>

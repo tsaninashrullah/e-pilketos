@@ -25,7 +25,7 @@
             </div>
             <div class="col-lg-2">
             	<div class="form-group">
-                {{ Form::text('born', $value = null, $attributes = array('required', 'class' => 'form-control', 'id' => 'datepicker', 'placeholder' => 'Tanggal Lahir')) }}
+                    {{ Form::text('born_date', $value = null, $attributes = array('required', 'class' => 'form-control', 'id' => 'datepicker','placeholder' => 'yyyy/mm/dd')) }}
     			</div>
             </div>
             </div>
@@ -37,11 +37,20 @@
                     </div>
                 </div>
             </div>
-            <textarea name="textarea" id="textarea" class="textarea"></textarea>
+            <!-- <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><b>Visi</b></div>
+                    <div class="panel-body">
+                        <span class="pull-right" id="btn-add-visi" onclick="addVisi()">Tambah Visi</span>
+                        <br>
+                        <div id="list-visi" class="row"></div>
+                    </div>
+                </div>
+            </div> -->
             <div class="col-lg-12">
                 <div class="col-lg-5">
                 	<div class="form-group">
-        			{{ Form::textarea('visi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'VISI', 'id' => 'textarea')) }}
+                    {{ Form::textarea('visi', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'VISI', 'id' => 'textarea')) }}
         			{{ $errors->first('visi') }}
         			</div>
                 </div>
@@ -74,18 +83,19 @@
     </div>
 </div>
 <!-- JS Custom -->
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
-
-<script type="text/javascript">
-    $(function() {
+<script>
+    $( function() {
         $( "#datepicker" ).datepicker({
           changeMonth: true,
           changeYear: true,
           dateFormat: 'yy/mm/dd'
         });
     });
-    $('textarea').ckeditor();
-    $('.textarea').ckeditor();
+    function addVisi(){
+        var i;
+        $('#list-visi').append('<div class="col-lg-12"> - <input type="text" id="'+i+'" name="visi["'+i+'"]" class="form-control"></div>');
+        i = i+1;
+    }
+    // $('.textarea').ckeditor(); // if class is prefered.
 </script>
 @stop

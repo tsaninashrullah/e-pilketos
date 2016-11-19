@@ -17,6 +17,7 @@ class ExcelsController extends Controller
     	});
     	return redirect('candidates.index')->with('candidates', $candidates);
     }
+
     public function export_candidates()
     {
     	$candidates = Candidates::all();
@@ -26,6 +27,7 @@ class ExcelsController extends Controller
     		});
     	})->export('xlsx');
     }
+
     public function import_user(Request $request)
     {
     	ini_set('max_execution_time', 300);
@@ -86,6 +88,7 @@ class ExcelsController extends Controller
 	        return redirect('users')->with('users', $users);
     	}
     }
+
     public function import_users(Request $request)
     {
 		ini_set('max_execution_time', 300);
@@ -100,7 +103,7 @@ class ExcelsController extends Controller
 			        'gender' => $result->gender,
 			        'born' => $result->born,
 			        'graduate' => $result->graduate,
-			        'password' => $result->password,
+			        'password' => $result->nisn,
 			        'status' => $result->status,
 		        ];
 		        Sentinel::registerAndActivate($credentials);
@@ -109,6 +112,7 @@ class ExcelsController extends Controller
         $users = Users::all();
         return redirect('users')->with('users', $users);
     }
+
     public function export_users($graduate)
     {
 		ini_set('max_execution_time', 300);

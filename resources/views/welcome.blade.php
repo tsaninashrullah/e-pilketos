@@ -53,7 +53,7 @@ Use App\Models\Users;
     <br>
     @foreach($list_candidates as $candidates)
     <center>
-      <div class="col-xs-6 col-xs-4">
+      <div class="col-xs-6 col-md-3">
         <div class="thumbnail">
           <center>
           <h3>{{ $candidates->name }}</h3>
@@ -78,21 +78,25 @@ Use App\Models\Users;
       </div>
     </center>
     @endforeach
-     <?php
-      $total_suara = 0;
-      foreach ($list_candidates as $key => $votescandidates) {
-        $total_suara = $total_suara + count($votescandidates->votes);
-      }
-      $tes2 = Users::where('status', '=', '1')->get();
-      $tes = Users::where('status', '!=', '2')->get();
-      ?>
-    <br>
-    <center>
-    Jumlah siswa yang sudah memilih:
-    {{ count($tes2) }}
-     dari 
-    {{ count($tes) }}
-    </center>
+    <div class="row">
+      <div class="col-lg-12">
+         <?php
+          $total_suara = 0;
+          foreach ($list_candidates as $key => $votescandidates) {
+            $total_suara = $total_suara + count($votescandidates->votes);
+          }
+          $tes2 = Users::where('status', '=', '1')->get();
+          $tes = Users::where('status', '!=', '2')->get();
+          ?>
+        <br>
+        <center>
+        Jumlah siswa yang sudah memilih:
+        {{ count($tes2) }}
+         dari 
+        {{ count($tes) }}
+        </center>
+      </div>
+    </div>
     @endif
   </div>
 </div>

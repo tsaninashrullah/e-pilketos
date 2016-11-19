@@ -33,9 +33,9 @@ $votes = Votes::all();
                             </h2>
                             <small>Lahir : {{ $candidate->born }}</small> 
                             <br>
-                            <small> VISI : {{ $candidate->visi }} </small>
+                            <small> VISI : {!! $candidate->visi !!} </small>
                             <br>
-                             <small>MISI : {{ $candidate->misi }}</small>
+                             <small>MISI : {!! $candidate->misi !!}</small>
                             <br>
                             <small>Alamat : {{ $candidate->address }}</small>
                         </div>

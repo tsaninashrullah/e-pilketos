@@ -24,7 +24,13 @@ class CandidatesRequest extends Request
     public function rules()
     {
         return [
-            //
+            'image' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'born' => 'required',
+            'email' => 'required|email|candidates:unique',
+            'visi' =>'required',
+            'misi' =>'required'
         ];
     }
 }

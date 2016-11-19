@@ -19,8 +19,8 @@
 <br>
 <div class="col-xs-12">
 @foreach($list_candidates as $candidates)
-<div class="col-sm-6 col-md-4">
-<div class="thumbnail">
+<div class="col-sm-6 col-md-3" style="background-color:white;">
+<div class="">
 <br>
  <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
       <div class="caption">

@@ -20,7 +20,7 @@
                 </div>
               @else
           <div class="container-fluid" style="width:95%">
-            <div class="col-lg-2 pull-right">
+            <div class="col-lg-3 pull-right">
               <div class="form-group pull-right">
                <div class="btn-group">
                   {{ link_to('candidates/create', 'Tambah', array('class' => 'btn btn-primary btn-primary')) }}

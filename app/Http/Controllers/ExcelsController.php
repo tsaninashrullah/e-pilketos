@@ -5,6 +5,7 @@ use App\Http\Requests;
 use Input, DB, Excel, Hash;
 use App\Models\Candidates;
 use App\Models\Users;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 class ExcelsController extends Controller
 {
     public function import_candidates(Request $request)
@@ -95,6 +96,7 @@ class ExcelsController extends Controller
     	$file = $request->file('users');
         Excel::load($file,function($reader){
 		    foreach($reader->toObject() as $result) {
+		    	// dd($result);
 		        // Your model namespace here
 		        $credentials = [
 			        'name' => $result->name,
@@ -102,15 +104,16 @@ class ExcelsController extends Controller
 			        'address' => $result->address,
 			        'gender' => $result->gender,
 			        'born' => $result->born,
+			        'type_id' => $result->type_id,
 			        'graduate' => $result->graduate,
 			        'password' => $result->nisn,
 			        'status' => $result->status,
 		        ];
-		        Sentinel::registerAndActivate($credentials);
+		        $credent = Sentinel::registerAndActivate($credentials);
 		    }
 	    });
         $users = Users::all();
-        return redirect('users')->with('users', $users);
+        return redirect('users');
     }
 
     public function export_users($graduate)

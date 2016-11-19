@@ -102,17 +102,17 @@ class CandidatesController extends Controller
         $candidates = Candidates::find($id);
         if(count($request->image) != 0)
         {
-            $image_locations = public_path().'/uploads/images/' . $candidate->id;
-            $image_location = public_path().'/uploads/images/' . $candidate->id . '/';
+            $image_locations = public_path().'/uploads/images/' . $candidates->id;
+            $image_location = public_path().'/uploads/images/' . $candidates->id . '/';
             File::deleteDirectory($image_locations);
             $file = $request->file('image');
             $image = Image::make($file);
             $direction  = File::makeDirectory($image_location,0777, true, true);
             // $final = $direction . "/";
-            $image->save($image_location . $candidate->id . '.jpg');
+            $image->save($image_location . $candidates->id . '.jpg');
             $image->resize(200,100);
-            $image->save($image_location . 'thumb'. $candidate->id . '.jpg');
-            $candidate->image =  'uploads/images/' . $candidate->id . '/' . $candidate->id . '.jpg';
+            $image->save($image_location . 'thumb'. $candidates->id . '.jpg');
+            $candidates->image =  'uploads/images/' . $candidates->id . '/' . $candidates->id . '.jpg';
         }
         // $request->file('image')->move($uploadDestinationPath, $new_file_name);
         $candidates->update($request->all());

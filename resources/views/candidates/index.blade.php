@@ -8,7 +8,6 @@
         <h3 class="title"><font color="white">Daftar Kandidat</font></h3>
      </div>
         <div class="content">
-            <form>
             <div class="row">
               @if(count($candidates) == 0)
                 <div class="col-md-12">
@@ -21,7 +20,7 @@
                 </div>
               @else
           <div class="container-fluid" style="width:95%">
-            <div class="col-lg-4 pull-right">
+            <div class="col-lg-3 pull-right">
               <div class="form-group pull-right">
                <div class="btn-group">
                   {{ link_to('candidates/create', 'Tambah', array('class' => 'btn btn-primary btn-primary')) }}
@@ -39,7 +38,7 @@
               &nbsp;
             </div>
           @foreach($candidates as $candidate) 
-          <div class="col-sm-6 col-md-4">
+          <div class="col-sm-6 col-md-3">
           <div class="form-group">
               <div class="thumbnail">
                 <img src="{{ asset('uploads/images/' . $candidate->id . '/' . $candidate->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;">

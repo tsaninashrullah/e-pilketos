@@ -28,7 +28,7 @@
               <center>
               <h3>{{ $candidates->name }}</h3>
               </center>
-              <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="width:auto;" class="img-circle">
+              <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->id) }}" style="width:auto;" class="img-circle">
               <div class="caption">
               <center>
                 <p><a href="show_candidate/{{$candidates->id}}" class="btn btn-primary" role="button">Profil</a></p>

@@ -22,7 +22,7 @@
 <div class="col-sm-6 col-md-3" style="background-color:white;">
 <div class="">
 <br>
- <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->image) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
+ <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->id) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
       <div class="caption">
   <div class="caption">
   <center>

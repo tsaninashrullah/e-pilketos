@@ -18,7 +18,7 @@ use App\Models\Users;
       @foreach($list_candidates as $candidates)
         <div class="col-xs-4">
         	<div class="thumbnail">
-        	 <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->id) }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
+        	 <img src="{{ asset('uploads/images/' . $candidates->id . '/thumb' . $candidates->id . '.jpg') }}" style="max-height:200px;max-width:200px;margin-top:10px;" class="img-circle">
           	<div class="caption">
         		  <center>
       		    <h3>{{ $candidates->name }}</h3>

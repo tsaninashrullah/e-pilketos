@@ -123,14 +123,14 @@
               <div class="col-lg-12">
               <hr>
                 <div class="form-group">
-                {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN', 'maxlength'=>'10')) }}
+                {{ Form::text('nisn', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'NISN', 'id'=>'nisn', 'maxlength'=>'10', 'onkeyup'=>'addPassword()')) }}
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-12">
                 <div class="form-group">
-                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'PASSWORD']) }}
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'PASSWORD', 'id' => 'password']) }}
                     {{ $errors->first('password') }}
                 </div>
               </div>
@@ -146,3 +146,12 @@
   </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#password').hide();
+  });
+  function addPassword() {
+    $('#password').val($('#nisn').val());
+  }
+</script>

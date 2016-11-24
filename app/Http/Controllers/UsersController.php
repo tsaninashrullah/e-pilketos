@@ -189,7 +189,7 @@ class UsersController extends Controller
             $data['list_candidates'] = Candidates::all();
             $data['votes'] = Votes::all();
             $data['usersVotes'] = Users::where('status', '=', '1')->get();
-            $data['sumUsers'] = Users::where('status', '!=', '2')->get();
+            $data['sumUsers'] = Users::whereTypeId(3)->get();
             $view = (String) view('list-candidates', $data)
                 ->render();
             return response()->json(['view' => $view]);
@@ -197,7 +197,7 @@ class UsersController extends Controller
         $data['list_candidates'] = Candidates::all();
         $data['votes'] = Votes::all();
         $data['usersVotes'] = Users::where('status', '=', '1')->get();
-        $data['sumUsers'] = Users::where('status', '!=', '2')->get();
+        $data['sumUsers'] = Users::whereTypeId(3)->get();
         return view('quick_count', $data);
     }
 

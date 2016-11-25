@@ -39,14 +39,16 @@ class CandidatesController extends Controller
      */
     public function store(Request $request)
     {
+        $visi = str_replace("\r\n", "<br>", $request->visi);
+        $misi = str_replace("\r\n", "<br>", $request->misi);
         $candidate = new Candidates();
                 
         $candidate->name = $request->name;
         $candidate->address = $request->address;
         $candidate->born = $request->born_date;
         $candidate->email = $request->email;
-        $candidate->visi = $request->visi;
-        $candidate->misi = $request->misi;
+        $candidate->visi = $visi;
+        $candidate->misi = $misi;
         $candidate->vote = "0";
         $candidate->save();
 

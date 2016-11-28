@@ -12,4 +12,5 @@
 */
 Route::group(['middleware' => 'admin'], function () {
 	Route::resource('candidates', 'CandidatesController');
+	Route::get('officialreport', 'ReportController@officialReport')->name('officialreport');
 });

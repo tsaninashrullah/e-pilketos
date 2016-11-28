@@ -14,6 +14,12 @@ use App\Models\Users;
         <h3 class="title"><font color="white">Quick Count</font></h3>
      </div>
     <div class="content">
+    <div class="row">
+      <div class="col-lg-12">
+        <a href="officialreport"><span class="btn btn-default pull-right">DOWNLOAD BERITA ACARA</span></a>
+      </div>
+    </div>
+    <div class="col-lg-12">&nbsp;</div>
       <div class="row">
       @foreach($list_candidates as $candidates)
         <div class="col-xs-4">

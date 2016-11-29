@@ -10,6 +10,32 @@
 <!-- Latest compiled and minified JavaScript -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 	<style type="text/css">
+	table {
+		border-collapse: collapse !important;
+	}
+	table td,
+	table th {
+		background-color: #fff !important;
+	}
+	table-bordered th,
+	table-bordered td {
+	    border: 1px solid #ddd !important;
+	  }
+	table-bordered {
+	  border: 1px solid #ddd;
+	}
+	table-bordered > thead > tr > th,
+	table-bordered > tbody > tr > th,
+	table-bordered > tfoot > tr > th,
+	table-bordered > thead > tr > td,
+	table-bordered > tbody > tr > td,
+	table-bordered > tfoot > tr > td {
+	  border: 1px solid #ddd;
+	}
+	table-bordered > thead > tr > th,
+	table-bordered > thead > tr > td {
+	  border-bottom-width: 2px;
+	}
 	body {
 	    font-family: "Times New Roman", Times, serif;
 	    font-size: 11px;
@@ -38,15 +64,19 @@
 		text-align: left;
 	}
 	th {
-		border-style: solid;
+		/*border-style: solid;*/
+		background-color:#f0f0f0;
 		text-align: center;
 	}
-	td {
-		border-style: solid;
-	}
+	/*td {
+		border-style: groove;
+	}*/
 	#ttd {
 		width: 35%;
 		text-align: center;
+	}
+	#header-top-table {
+		/*background: black;color: white;*/
 	}
 	</style>
 	<title></title>
@@ -59,17 +89,17 @@
 	<p id="desc">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahwa pada hari Kamis-Jum'at tanggal 25-26 bulan November tahun Dua Ribu Enam Belas telah dilaksanakan Pemilihan Umum Ketua dan Wakil Ketua Organisasi Siswa Intra Sekolah (OSIS) SMK PGRI 1 Cimahi Masa Bakti 2016 – 2017 dengan jumlah Daftar Pemilih {{$sum}} dan rincian hasil sebagai berikut:
 	<p>
-	<table width="100%" class="table table-bordered" style="border:solid;">
+	<table width="100%" class="table table-bordered" border="1" style="">
 		<tr id="header-table">
-			<th>NO URUT</th>
-			<th>NAMA CALON KETUA OSIS</th>
-			<th width="40%">ALAMAT</th>
-			<th>TANGGAL LAHIR</th>
-			<th>SUARA</th>
+			<th id="header-top-table">NO URUT</th>
+			<th id="header-top-table">NAMA CALON KETUA OSIS</th>
+			<th id="header-top-table" width="40%">ALAMAT</th>
+			<th id="header-top-table">TANGGAL LAHIR</th>
+			<th id="header-top-table">SUARA</th>
 		</tr>
 		@foreach($candidates as $key => $value)
 		<tr id="desc-table">
-			<td>{{$key+1}}</td>
+			<td style="text-align:center;">{{$key+1}}</td>
 			<td>{{ $value->name }}</td>
 			<td width="40%">{{$value->address}}</td>
 			<td>{{date("d-M-Y", strtotime($value->born))}}</td>

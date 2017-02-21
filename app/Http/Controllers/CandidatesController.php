@@ -53,13 +53,13 @@ class CandidatesController extends Controller
         $candidate->save();
 
         $file = $request->file('image');
-        $image = Image::make($file);
         $image_location = public_path().'/uploads/images/' . $candidate->id . '/';
         $direction  = File::makeDirectory($image_location,0777, true, true);
+        $image = Image::make($file)->save($image_location . '/' . $candidate->id);
         // $final = $direction . "/";
-        $image->save($image_location . $candidate->id . '.jpg');
+        $image->save($image_location . '/' . $candidate->id . '.jpg');
         $image->resize(200,100);
-        $image->save($image_location . 'thumb'. $candidate->id . '.jpg');
+        $image->save($image_location . '/' . 'thumb'. $candidate->id . '.jpg');
         $candidate->image = $candidate->id . '.jpg';
         $candidate->save();
 

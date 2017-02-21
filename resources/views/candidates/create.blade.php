@@ -10,31 +10,29 @@
         <div class="content">
             <div class="row">
     		{{ Form::open(array('route' => 'candidates.store', 'files' => true)) }}
-            <div class="col-lg-12">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
             	<div class="form-group">
+                {{ Form::label('name', 'NAMA KANDIDAT') }}
     			{{ Form::text('name', $value = null, $attributes = array('required', 'class' => 'form-control','placeholder' => 'Nama')) }}
     			{{ $errors->first('name') }}
     			</div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
+                {{ Form::label('email', 'EMAIL') }}
                 {{ Form::email('email', $value = null, $attributes = array('required', 'class' => 'form-control', 'placeholder' => 'email@email.com')) }}
                 {{ $errors->first('email') }}
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-6">
             	<div class="form-group">
                     {{ Form::text('born_date', $value = null, $attributes = array('required', 'class' => 'form-control', 'id' => 'datepicker','placeholder' => 'yyyy/mm/dd')) }}
     			</div>
             </div>
-            </div>
             <div class="col-lg-12">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                    {{ Form::textarea('address', $value = null, $attributes = array('required', 'class' => 'form-control','placeholder' => 'Alamat')) }}
-                    {{ $errors->first('address') }}
-                    </div>
+                <div class="form-group">
+                {{ Form::textarea('address', $value = null, $attributes = array('required', 'class' => 'form-control','placeholder' => 'Alamat')) }}
+                {{ $errors->first('address') }}
                 </div>
             </div>
             <!-- <div class="col-lg-12">

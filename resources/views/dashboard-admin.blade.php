@@ -15,7 +15,7 @@ use App\Models\Users;
      </div>
     <div class="content">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-3">
         <a href="officialreport"><span class="btn btn-default pull-right">DOWNLOAD BERITA ACARA</span></a>
       </div>
     </div>

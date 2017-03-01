@@ -204,7 +204,6 @@ class UsersController extends Controller
     public function show_candidate($id)
     {
         $candidate = Candidates::find($id);
-        $vote = Votes::all();
         return view('candidate.show')
         ->with('candidate', $candidate)
         ->with('votes',$vote);
